@@ -3,6 +3,7 @@ import { createHardwareForm } from './components/HardwareForm.js';
 import { createModelTable } from './components/ModelTable.js';
 import { createFilters } from './components/Filters.js';
 import { createGuide } from './components/Guide.js';
+import { createThemeToggle } from './lib/theme.js';
 import { filterModels } from './lib/filter.js';
 import { MODELS } from './data/index.js';
 
@@ -12,11 +13,13 @@ app.innerHTML = `
   <header class="app-header">
     <h1>Catálogo de modelos abiertos</h1>
     <p>Modelos de ML y deep learning con pesos abiertos, y qué hace falta para correrlos en local</p>
+    <p class="date">${new Date().toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
   </header>
   <main class="app-main" id="content"></main>
 `;
 
 const content = document.querySelector('#content');
+createThemeToggle(document.querySelector('.app-header'));
 
 const hardware = createHardwareForm(content, {
   onChange: () => update(),
