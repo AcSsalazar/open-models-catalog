@@ -41,7 +41,7 @@ export function createPapers(container, { papers, models = [], onModel } = {}) {
   const root = document.createElement('section');
   root.className = styles.papers;
   root.innerHTML = `
-    <h2 class="${styles.title}">3 Papers destacados</h2>
+    <h2 class="${styles.title}">4 Papers destacados</h2>
     <p class="${styles.lead}">
       Trabajos publicados que aplican modelos abiertos a problemas concretos: reconocimiento de voz, emociones faciales, salud,
       agricultura y más. Cada entrada resume el problema y el resultado, y enlaza los modelos que están en el catálogo.

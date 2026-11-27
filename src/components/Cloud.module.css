@@ -1,0 +1,96 @@
+.cloud {
+  display: grid;
+  gap: 10px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.lead {
+  margin: 0;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.scroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  border-top: 1.5px solid var(--border);
+  border-bottom: 1.5px solid var(--border);
+}
+
+.table th,
+.table td {
+  padding: 5px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table thead th {
+  border-bottom: 0.5px solid var(--border);
+}
+
+.group th {
+  padding-top: 12px;
+  font-style: italic;
+  font-weight: 400;
+  border-bottom: 0.5px solid var(--hairline);
+}
+
+.num {
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+.name {
+  display: block;
+  font-weight: 700;
+}
+
+.name a {
+  color: var(--text);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.85em;
+}
+
+.small a {
+  color: var(--accent);
+}
+
+.use {
+  display: block;
+  margin: 4px 0 0 auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font-size: 0.85em;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.use:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .table {
+    font-size: 0.85rem;
+  }
+}

@@ -5,10 +5,12 @@ import { createFilters } from './components/Filters.js';
 import { createGuide } from './components/Guide.js';
 import { createContents } from './components/Contents.js';
 import { createPapers } from './components/Papers.js';
+import { createCloud } from './components/Cloud.js';
 import { createThemeToggle } from './lib/theme.js';
 import { filterModels } from './lib/filter.js';
 import { MODELS } from './data/index.js';
 import PAPERS from './data/papers.json';
+import PLATFORMS from './data/cloud.json';
 
 const app = document.querySelector('#app');
 
@@ -34,6 +36,8 @@ const filters = createFilters(table.slot('filters'), {
   models: MODELS,
   onChange: () => update(),
 });
+
+createCloud(content, { platforms: PLATFORMS, models: MODELS });
 
 createPapers(content, { papers: PAPERS, models: MODELS, onModel: (id) => openModel(id) });
 
