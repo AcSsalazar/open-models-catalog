@@ -9,7 +9,10 @@ Página con modelos de machine learning y deep learning de pesos abiertos, pensa
 - Links a Hugging Face, Kaggle, GitHub, Ollama y al paper cuando existen.
 - Sección "Tu equipo": indicas tu RAM y VRAM y la tabla muestra qué modelos corren en GPU, en CPU o no alcanzan.
 - Filtros por categoría, búsqueda, "solo los que corren en mi equipo" y orden por nombre, VRAM, parámetros o fecha.
-- Guía para estimar memoria según parámetros y precisión, con calculadora.
+- Sección "Nube gratuita": 17 plataformas con capa gratis (notebooks, Spaces, VM, créditos y APIs), con límites, beneficios para estudiantes y cuántos modelos caben en cada una. El botón "Usar en el catálogo" carga su GPU y RAM como tu equipo.
+- Cada ficha indica en qué notebook o VM gratis cabe el modelo.
+- Sección "Papers destacados": 26 papers que aplican estos modelos (voz, emociones faciales, salud, agro, accesibilidad y más), con resumen y enlace a los modelos del catálogo.
+- Guía para estimar memoria según parámetros y precisión, con calculadora y un paso a paso para Colab o Kaggle.
 
 ## Sobre los datos
 
@@ -18,6 +21,8 @@ Los datos se verificaron en noviembre de 2026 en las fichas oficiales (Hugging F
 - Tamaños de pesos: API de Hugging Face; los cuantizados, del archivo GGUF Q4_K_M.
 - Benchmarks: solo cifras publicadas por la fuente oficial, cada una con su link. Si la fuente no publica cifras, la lista queda vacía.
 - Requisitos de VRAM y RAM: estimaciones (pesos × 1.2 más margen de contexto). Cada ficha explica de dónde salen.
+- Plataformas en la nube: cifras de la página oficial de cada una. Google no publica la GPU ni la RAM de Colab gratis; se usan los valores típicos (T4 de 15 GB, 12 GB de RAM) y se aclara en la nota.
+- Papers: cada uno revisado en arXiv, ACL Anthology, ISCA, PMC o la editorial. Muchos usan una versión anterior del modelo (por ejemplo Whisper large-v2 o SAM 1); se indica en el texto.
 
 Los modelos cambian rápido: antes de descargar uno, revisa su ficha y su licencia (varias son no comerciales).
 
@@ -35,8 +40,8 @@ npm run build   # compilación en dist/
 ```
 src/
   components/   Interfaz, cada componente con su .module.css
-  data/         Modelos por grupo en JSON e índice
-  lib/          Esquema, filtros y cálculos de hardware
+  data/         Modelos por grupo en JSON e índice; cloud.json y papers.json
+  lib/          Esquemas, filtros, cálculos de hardware y de nube
 ```
 
 Para agregar un modelo, súmalo al JSON de su grupo en `src/data/` siguiendo el esquema de `src/lib/schema.js`. Las pruebas avisan si falta un campo o un dato no cuadra.
