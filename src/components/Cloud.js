@@ -65,8 +65,11 @@ export function createCloud(container, { platforms, models, onUse } = {}) {
                   ${escapeHtml(p.free)}
                   <span class="${styles.small}">${escapeHtml(p.limits)}${p.requiresCard ? ' Pide tarjeta.' : ''}</span>
                   ${p.students ? `<span class="${styles.small}"><em>Estudiantes:</em> ${escapeHtml(p.students)}</span>` : ''}
-                  ${p.notes ? `<span class="${styles.small}">${escapeHtml(p.notes)}</span>` : ''}
-                  <span class="${styles.small}">Fuente: ${link(p.source, new URL(p.source).hostname.replace(/^www\./, ''))}</span>
+                  <details class="${styles.more}">
+                    <summary>Notas y fuente</summary>
+                    ${p.notes ? `<span class="${styles.small}">${escapeHtml(p.notes)}</span>` : ''}
+                    <span class="${styles.small}">Fuente: ${link(p.source, new URL(p.source).hostname.replace(/^www\./, ''))}</span>
+                  </details>
                 </td>
                 <td>${hardwareCell(p)}</td>
                 <td class="${styles.num}">

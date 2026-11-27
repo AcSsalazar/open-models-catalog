@@ -89,6 +89,17 @@
   text-decoration: underline;
 }
 
+.more {
+  margin-top: 2px;
+}
+
+.more summary {
+  color: var(--accent);
+  font-size: 0.85em;
+  font-style: italic;
+  cursor: pointer;
+}
+
 @media (max-width: 640px) {
   .table {
     font-size: 0.85rem;
