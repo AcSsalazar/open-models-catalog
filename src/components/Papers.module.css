@@ -1,0 +1,120 @@
+.papers {
+  display: grid;
+  gap: 10px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.lead {
+  margin: 0;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+
+.areaBtn {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.areaBtn sup {
+  margin-left: 2px;
+  color: var(--muted);
+  font-size: 0.7em;
+}
+
+.areaBtn:hover,
+.active {
+  color: var(--accent);
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.search {
+  width: 100%;
+  max-width: 28rem;
+  padding: 2px 0;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.list {
+  margin: 4px 0 0;
+  padding-left: 2.2em;
+}
+
+.entry {
+  margin: 0 0 14px;
+  padding-left: 4px;
+}
+
+.entry::marker {
+  font-weight: 700;
+}
+
+.entry p {
+  margin: 0;
+}
+
+.paperTitle {
+  font-style: italic;
+}
+
+.ref a {
+  color: var(--accent);
+}
+
+.summary {
+  margin-top: 2px !important;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.models {
+  margin-top: 2px !important;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.area {
+  margin-right: 6px;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  color: var(--text);
+}
+
+.model {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+.model:hover {
+  text-decoration: underline;
+}
+
+.empty {
+  list-style: none;
+  color: var(--muted);
+  font-style: italic;
+}

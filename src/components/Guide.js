@@ -23,7 +23,7 @@ export function createGuide(container) {
   const root = document.createElement('section');
   root.className = styles.guide;
   root.innerHTML = `
-    <h2 class="${styles.title}">3 Cómo leer los requisitos</h2>
+    <h2 class="${styles.title}">4 Cómo leer los requisitos</h2>
     <p>
       La memoria que necesita un modelo depende casi solo de cuántos parámetros tiene y de con cuántos bits se guarda cada uno.
       A eso se suma un margen para las activaciones y, en los modelos de lenguaje, para la caché del contexto. Una regla útil es:
