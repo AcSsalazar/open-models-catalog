@@ -3,6 +3,7 @@ import { createHardwareForm } from './components/HardwareForm.js';
 import { createModelTable } from './components/ModelTable.js';
 import { createFilters } from './components/Filters.js';
 import { createGuide } from './components/Guide.js';
+import { createContents } from './components/Contents.js';
 import { createThemeToggle } from './lib/theme.js';
 import { filterModels } from './lib/filter.js';
 import { MODELS } from './data/index.js';
@@ -33,6 +34,7 @@ const filters = createFilters(table.slot('filters'), {
 });
 
 createGuide(content);
+createContents(content, content);
 
 function update() {
   const visible = filterModels(MODELS, filters.value, hardware.value);

@@ -1,0 +1,35 @@
+.contents {
+  max-width: 26rem;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0 0 4px;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  margin: 2px 0;
+}
+
+.list a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.list a:hover {
+  color: var(--accent);
+}
+
+.num {
+  display: inline-block;
+  min-width: 1.6em;
+  font-weight: 700;
+}
