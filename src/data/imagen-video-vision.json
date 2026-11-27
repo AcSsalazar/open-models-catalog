@@ -1,1 +1,919 @@
-[]
+[
+ {
+  "id": "stable-diffusion-1.5",
+  "name": "Stable Diffusion 1.5",
+  "org": "Stability AI / Runway / CompVis",
+  "category": "imagen",
+  "task": "Generación de imágenes a partir de texto (512 px)",
+  "params": "UNet 860M",
+  "paramsB": 0.86,
+  "released": "2022-10",
+  "license": "CreativeML OpenRAIL-M",
+  "versions": [
+   "SD 1.4",
+   "SD 1.5",
+   "SD 2.1"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5",
+   "kaggle": null,
+   "github": "https://github.com/CompVis/stable-diffusion",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2112.10752"
+  },
+  "weights": {
+   "fullGB": 4.27,
+   "fullPrecision": "fp32",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "ckpt",
+    "diffusers"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 4,
+   "minRamGB": 8,
+   "cpuOk": true,
+   "note": "Estimado: en fp16 los pesos ocupan unos 2 GB; con activaciones a 512 px alcanza con 4 GB de VRAM. Corre en CPU pero tarda minutos por imagen. El tamaño 4.27 GB es el archivo v1-5-pruned-emaonly.safetensors."
+  },
+  "local": "facil",
+  "benchmarks": [],
+  "description": "El modelo clásico de difusión latente, liviano y con enorme ecosistema de LoRA y ajustes finos. Calidad inferior a modelos nuevos, pero corre en casi cualquier equipo."
+ },
+ {
+  "id": "stable-diffusion-xl-base-1.0",
+  "name": "Stable Diffusion XL Base 1.0",
+  "org": "Stability AI",
+  "category": "imagen",
+  "task": "Generación de imágenes a partir de texto (1024 px)",
+  "params": "UNet 2.6B",
+  "paramsB": 2.57,
+  "released": "2023-07",
+  "license": "CreativeML OpenRAIL++-M",
+  "versions": [
+   "SDXL Base 1.0",
+   "SDXL Refiner 1.0",
+   "SDXL Turbo"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0",
+   "kaggle": null,
+   "github": "https://github.com/Stability-AI/generative-models",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2307.01952"
+  },
+  "weights": {
+   "fullGB": 6.94,
+   "fullPrecision": "fp16",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "diffusers",
+    "ONNX"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 8,
+   "minRamGB": 16,
+   "cpuOk": false,
+   "note": "Estimado: pesos fp16 de 6.94 GB x 1.2 da unos 8 GB; la ficha recomienda enable_model_cpu_offload si falta VRAM. Sin offload, 10 a 12 GB es más cómodo."
+  },
+  "local": "facil",
+  "benchmarks": [],
+  "description": "Modelo de imagen de 1024 px con dos codificadores de texto. Sigue siendo muy usado por su equilibrio entre calidad y requisitos."
+ },
+ {
+  "id": "stable-diffusion-3.5-medium",
+  "name": "Stable Diffusion 3.5 Medium",
+  "org": "Stability AI",
+  "category": "imagen",
+  "task": "Generación de imágenes a partir de texto (hasta 1 MP)",
+  "params": "2.5B",
+  "paramsB": 2.5,
+  "released": "2024-10",
+  "license": "Stability AI Community License (gratis para uso comercial bajo US$1 M de ingresos anuales)",
+  "versions": [
+   "SD 3.5 Medium",
+   "SD 3.5 Large",
+   "SD 3.5 Large Turbo"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium",
+   "kaggle": null,
+   "github": "https://github.com/Stability-AI/sd3.5",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2403.03206"
+  },
+  "weights": {
+   "fullGB": 16.5,
+   "fullPrecision": "fp16",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "diffusers"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 10,
+   "minRamGB": 24,
+   "cpuOk": false,
+   "note": "Estimado: transformer fp16 4.94 GB + CLIP-L/CLIP-G + T5-XXL fp16 9.79 GB = 16.5 GB (suma propia de los archivos del repo). La doc de diffusers indica que SD3 con T5 cuesta correr en menos de 24 GB sin optimizaciones; con model offload o sin T5 baja a 8 a 10 GB. Repo con acceso restringido (aceptar licencia)."
+  },
+  "local": "gpu",
+  "benchmarks": [],
+  "description": "Modelo MMDiT de Stability con tres codificadores de texto. Versión media: buena calidad con requisitos moderados si se usa offload."
+ },
+ {
+  "id": "stable-diffusion-3.5-large",
+  "name": "Stable Diffusion 3.5 Large",
+  "org": "Stability AI",
+  "category": "imagen",
+  "task": "Generación de imágenes a partir de texto (hasta 1 MP)",
+  "params": "8.1B",
+  "paramsB": 8.1,
+  "released": "2024-10",
+  "license": "Stability AI Community License (gratis para uso comercial bajo US$1 M de ingresos anuales)",
+  "versions": [
+   "SD 3.5 Medium",
+   "SD 3.5 Large",
+   "SD 3.5 Large Turbo"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
+   "kaggle": null,
+   "github": "https://github.com/Stability-AI/sd3.5",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2403.03206"
+  },
+  "weights": {
+   "fullGB": 27.9,
+   "fullPrecision": "fp16",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "diffusers"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 20,
+   "minRamGB": 32,
+   "cpuOk": false,
+   "note": "Estimado: transformer fp16 16.3 GB + codificadores de texto (T5-XXL fp16 9.79 GB, CLIP) = 27.9 GB (suma propia). Con model offload el pico ronda 20 GB; sin offload hace falta una GPU de 32 GB o más. Repo con acceso restringido."
+  },
+  "local": "gpu",
+  "benchmarks": [],
+  "description": "Versión grande de SD 3.5, la de mayor calidad de la familia. Entra en una GPU de 24 GB usando offload del codificador T5."
+ },
+ {
+  "id": "flux.1-schnell",
+  "name": "FLUX.1 [schnell]",
+  "org": "Black Forest Labs",
+  "category": "imagen",
+  "task": "Generación de imágenes rápida (1 a 4 pasos)",
+  "params": "12B",
+  "paramsB": 12.0,
+  "released": "2024-08",
+  "license": "Apache-2.0",
+  "versions": [
+   "FLUX.1 [schnell]",
+   "FLUX.1 [dev]",
+   "FLUX.1 [pro] (solo API)"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+   "kaggle": null,
+   "github": "https://github.com/black-forest-labs/flux",
+   "ollama": null,
+   "paper": null
+  },
+  "weights": {
+   "fullGB": 33.7,
+   "fullPrecision": "bf16",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "diffusers",
+    "GGUF (comunidad)"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 24,
+   "minRamGB": 32,
+   "cpuOk": false,
+   "note": "Estimado: transformer bf16 23.8 GB + T5-XXL 9.5 GB + CLIP + VAE = 33.7 GB (suma propia). La doc de diffusers indica que cargar todos los componentes pide unos 50 GB de RAM/VRAM; con model offload el pico es el transformer (~24 GB). Con cuantización fp8 o 4 bits de la comunidad baja a 12 GB (no verificado). Repo con acceso restringido."
+  },
+  "local": "gpu",
+  "benchmarks": [],
+  "description": "Modelo destilado para generar en pocos pasos y con licencia Apache-2.0, apto para uso comercial. Calidad alta, pero exige GPU de 24 GB o cuantización."
+ },
+ {
+  "id": "flux.1-dev",
+  "name": "FLUX.1 [dev]",
+  "org": "Black Forest Labs",
+  "category": "imagen",
+  "task": "Generación de imágenes de alta calidad (guidance-distilled)",
+  "params": "12B",
+  "paramsB": 12.0,
+  "released": "2024-08",
+  "license": "FLUX.1 [dev] Non-Commercial License (solo uso no comercial)",
+  "versions": [
+   "FLUX.1 [schnell]",
+   "FLUX.1 [dev]",
+   "FLUX.1 [pro] (solo API)"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+   "kaggle": null,
+   "github": "https://github.com/black-forest-labs/flux",
+   "ollama": null,
+   "paper": null
+  },
+  "weights": {
+   "fullGB": 33.7,
+   "fullPrecision": "bf16",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "diffusers",
+    "GGUF (comunidad)"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 24,
+   "minRamGB": 32,
+   "cpuOk": false,
+   "note": "Estimado: igual que schnell (transformer bf16 23.8 GB + T5-XXL + CLIP + VAE = 33.7 GB). La doc de diffusers indica ~50 GB de RAM/VRAM para cargar todo; con offload el pico es ~24 GB. Licencia no comercial. Repo con acceso restringido."
+  },
+  "local": "gpu",
+  "benchmarks": [],
+  "description": "Variante de mayor fidelidad que schnell, con pesos abiertos pero licencia no comercial. Base de muchos LoRA y flujos de ComfyUI."
+ },
+ {
+  "id": "flux.2-klein-4b",
+  "name": "FLUX.2 [klein] 4B",
+  "org": "Black Forest Labs",
+  "category": "imagen",
+  "task": "Generación y edición de imágenes en tiempo casi real",
+  "params": "4B",
+  "paramsB": 4.0,
+  "released": "2026-01",
+  "license": "Apache-2.0",
+  "versions": [
+   "FLUX.2 [klein] 4B",
+   "FLUX.2 [klein] 9B",
+   "FLUX.2 [dev] 32B"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B",
+   "kaggle": null,
+   "github": "https://github.com/black-forest-labs/flux2",
+   "ollama": null,
+   "paper": null
+  },
+  "weights": {
+   "fullGB": 16.0,
+   "fullPrecision": "bf16",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "diffusers",
+    "GGUF (comunidad)",
+    "fp8"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 13,
+   "minRamGB": 24,
+   "cpuOk": false,
+   "note": "La ficha oficial dice ~13 GB de VRAM (GPU de consumo tipo RTX 3090/4070); el README de GitHub indica que cabe en ~8 GB. Pesos: transformer 7.75 GB + codificador de texto 8.05 GB + VAE = ~16 GB (suma propia). El ejemplo de la ficha usa enable_model_cpu_offload."
+  },
+  "local": "gpu",
+  "benchmarks": [],
+  "description": "Modelo compacto de la familia FLUX.2 que unifica generación y edición con varias referencias, en pocos pasos. Apache-2.0, apto para uso comercial."
+ },
+ {
+  "id": "flux.2-dev",
+  "name": "FLUX.2 [dev]",
+  "org": "Black Forest Labs",
+  "category": "imagen",
+  "task": "Generación y edición de imágenes con varias referencias",
+  "params": "32B",
+  "paramsB": 32.0,
+  "released": "2025-11",
+  "license": "FLUX Non-Commercial License (solo uso no comercial)",
+  "versions": [
+   "FLUX.2 [klein] 4B",
+   "FLUX.2 [klein] 9B",
+   "FLUX.2 [dev] 32B"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/black-forest-labs/FLUX.2-dev",
+   "kaggle": null,
+   "github": "https://github.com/black-forest-labs/flux2",
+   "ollama": null,
+   "paper": null
+  },
+  "weights": {
+   "fullGB": 113.2,
+   "fullPrecision": "bf16",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "diffusers"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 80,
+   "minRamGB": 128,
+   "cpuOk": false,
+   "note": "El README oficial dice que el script base necesita una GPU equivalente a H100. Con versiones cuantizadas de Hugging Face y codificador de texto remoto corre en una RTX 4090. Pesos: transformer 64.5 GB + codificador de texto ~48 GB (suma propia). Repo con acceso restringido."
+  },
+  "local": "dificil",
+  "benchmarks": [],
+  "description": "Modelo grande de BFL para generar y editar imágenes con varias referencias. Pesos abiertos pero licencia no comercial; en local requiere cuantización o hardware de centro de datos."
+ },
+ {
+  "id": "qwen-image-2.1",
+  "name": "Qwen-Image 2.1",
+  "org": "Alibaba (Qwen)",
+  "category": "imagen",
+  "task": "Generación y edición de imágenes, con transparencia (RGBA) y texto legible",
+  "params": "7B",
+  "paramsB": 7.1,
+  "released": "2026-09",
+  "license": "Qwen Research License (uso de investigación; revisar términos comerciales)",
+  "versions": [
+   "Qwen-Image",
+   "Qwen-Image 2.1",
+   "Qwen-Image 2.1 Turbo (8 pasos)"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/Qwen/Qwen-Image-2.1",
+   "kaggle": null,
+   "github": "https://github.com/QwenLM/Qwen-Image-2.1",
+   "ollama": null,
+   "paper": null
+  },
+  "weights": {
+   "fullGB": 33.1,
+   "fullPrecision": "bf16",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "diffusers",
+    "GGUF (comunidad)",
+    "FP8 (comunidad)"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 24,
+   "minRamGB": 48,
+   "cpuOk": false,
+   "note": "Estimado: transformer 14.2 GB + codificador de texto 17.5 GB + VAE 1.4 GB = 33.1 GB. La ficha recomienda enable_model_cpu_offload; con él el pico es el componente más grande (~24 GB con margen). Sin offload se necesitan ~40 GB. Hay cuantizaciones GGUF/FP8 de la comunidad."
+  },
+  "local": "gpu",
+  "benchmarks": [],
+  "description": "Sucesor de Qwen-Image (que era Apache-2.0): generador de 7B con edición y soporte nativo de transparencia. Cambió a una licencia de investigación; existe una variante Turbo de 8 pasos."
+ },
+ {
+  "id": "wan2.1-t2v-1.3b",
+  "name": "Wan 2.1 T2V 1.3B",
+  "org": "Alibaba (Wan-AI)",
+  "category": "video",
+  "task": "Texto a video (480p)",
+  "params": "1.3B",
+  "paramsB": 1.3,
+  "released": "2025-02",
+  "license": "Apache-2.0",
+  "versions": [
+   "Wan 2.1 T2V 1.3B",
+   "Wan 2.1 T2V/I2V 14B",
+   "Wan 2.2 TI2V 5B",
+   "Wan 2.2 A14B"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B",
+   "kaggle": null,
+   "github": "https://github.com/Wan-Video/Wan2.1",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2503.20314"
+  },
+  "weights": {
+   "fullGB": 17.6,
+   "fullPrecision": "fp32",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "diffusers",
+    "GGUF (comunidad)"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 8,
+   "minRamGB": 16,
+   "cpuOk": false,
+   "note": "La ficha oficial indica que el modelo 1.3B requiere solo 8.19 GB de VRAM y genera 5 s de video 480p en una RTX 4090 en ~4 minutos. Pesos: transformer 5.68 GB (fp32) + T5 11.36 GB (bf16) + VAE 0.51 GB (suma propia)."
+  },
+  "local": "facil",
+  "benchmarks": [],
+  "description": "El modelo de video más accesible de la lista: corre en una GPU de consumo de 8 GB a 480p. Calidad menor que Wan 2.2, pero licencia Apache-2.0."
+ },
+ {
+  "id": "wan2.2-ti2v-5b",
+  "name": "Wan 2.2 TI2V 5B",
+  "org": "Alibaba (Wan-AI)",
+  "category": "video",
+  "task": "Texto e imagen a video (720p, 24 fps)",
+  "params": "5B",
+  "paramsB": 5.0,
+  "released": "2025-07",
+  "license": "Apache-2.0",
+  "versions": [
+   "Wan 2.2 TI2V 5B",
+   "Wan 2.2 T2V A14B",
+   "Wan 2.2 I2V A14B"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B",
+   "kaggle": null,
+   "github": "https://github.com/Wan-Video/Wan2.2",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2503.20314"
+  },
+  "weights": {
+   "fullGB": 34.2,
+   "fullPrecision": "fp32",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "diffusers",
+    "GGUF (comunidad)"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 24,
+   "minRamGB": 32,
+   "cpuOk": false,
+   "note": "El README oficial indica que corre en una GPU de al menos 24 GB (RTX 4090) con --offload_model True --convert_model_dtype --t5_cpu; con 80 GB se puede quitar el offload. Pesos: transformer ~20 GB en fp32 (~10 GB en bf16) + T5 11.4 GB + VAE 2.8 GB. Existen cuantizaciones GGUF de la comunidad para GPU más chicas."
+  },
+  "local": "gpu",
+  "benchmarks": [],
+  "description": "Modelo híbrido de 5B que genera video de 720p a 24 fps desde texto o imagen. Es la opción práctica de Wan 2.2 para una GPU de 24 GB."
+ },
+ {
+  "id": "wan2.2-t2v-a14b",
+  "name": "Wan 2.2 T2V A14B",
+  "org": "Alibaba (Wan-AI)",
+  "category": "video",
+  "task": "Texto a video (480p y 720p)",
+  "params": "27B totales (14B activos)",
+  "paramsB": 27.0,
+  "released": "2025-07",
+  "license": "Apache-2.0",
+  "versions": [
+   "Wan 2.2 TI2V 5B",
+   "Wan 2.2 T2V A14B",
+   "Wan 2.2 I2V A14B"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B",
+   "kaggle": null,
+   "github": "https://github.com/Wan-Video/Wan2.2",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2503.20314"
+  },
+  "weights": {
+   "fullGB": 126.2,
+   "fullPrecision": "fp32",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "diffusers",
+    "GGUF (comunidad)"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 80,
+   "minRamGB": 128,
+   "cpuOk": false,
+   "note": "El README oficial indica que el comando de una sola GPU requiere al menos 80 GB de VRAM. Usa dos expertos de 14B (alto y bajo ruido); solo uno está activo por paso. El repo diffusers pesa 126.2 GB en fp32 (~63 GB en bf16). Con GGUF de la comunidad puede correr en GPU de 16 a 24 GB (no verificado)."
+  },
+  "local": "dificil",
+  "benchmarks": [],
+  "description": "Modelo Mixture-of-Experts de Wan 2.2 para texto a video de mayor calidad. Pesos abiertos con Apache-2.0, pero en local necesita GPU de 80 GB o cuantización agresiva."
+ },
+ {
+  "id": "ltx-2.5",
+  "name": "LTX-2.5",
+  "org": "Lightricks",
+  "category": "video",
+  "task": "Video con audio sincronizado a partir de texto, imagen o audio",
+  "params": "22B",
+  "paramsB": 22.0,
+  "released": "2026-07",
+  "license": "LTX-2.x Community License",
+  "versions": [
+   "LTX-Video",
+   "LTX-2",
+   "LTX-2.3",
+   "LTX-2.5"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/Lightricks/LTX-2.5",
+   "kaggle": null,
+   "github": "https://github.com/Lightricks/LTX-2",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2601.03233"
+  },
+  "weights": {
+   "fullGB": 70.8,
+   "fullPrecision": "bf16",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "int8 (ComfyUI)",
+    "nvfp4",
+    "GGUF (comunidad)"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 32,
+   "minRamGB": 64,
+   "cpuOk": false,
+   "note": "Estimado: el transformer bf16 pesa 42 GB (21.5 GB en int8, 18.7 GB en nvfp4) y el codificador de texto Gemma 26.3 GB; el README oficial (~66 GiB de descarga) recomienda --quantization fp8-cast --offload cpu/disk si falta memoria. El pico depende de resolución y duración. Repo con acceso restringido."
+  },
+  "local": "dificil",
+  "benchmarks": [],
+  "description": "Modelo de video con audio de Lightricks, versión vigente de la familia LTX. Pesos abiertos bajo licencia comunitaria propia; en local necesita cuantización y una GPU de 32 GB o más."
+ },
+ {
+  "id": "hunyuanvideo-1.5",
+  "name": "HunyuanVideo 1.5",
+  "org": "Tencent",
+  "category": "video",
+  "task": "Texto e imagen a video (480p y 720p, con super-resolución a 1080p)",
+  "params": "8.3B",
+  "paramsB": 8.3,
+  "released": "2025-11",
+  "license": "Tencent Hunyuan Community License",
+  "versions": [
+   "HunyuanVideo (13B)",
+   "HunyuanVideo 1.5"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/tencent/HunyuanVideo-1.5",
+   "kaggle": null,
+   "github": "https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2511.18870"
+  },
+  "weights": {
+   "fullGB": 38.4,
+   "fullPrecision": "fp32",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "diffusers",
+    "GGUF (comunidad)"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 14,
+   "minRamGB": 32,
+   "cpuOk": false,
+   "note": "La ficha oficial indica 14 GB de VRAM mínima con model offloading; sin offload conviene una GPU de 24 GB o más (estimado). Cada variante (480p/720p, T2V/I2V) pesa ~33.3 GB en fp32 (~16.6 GB en bf16) más 5.0 GB de VAE; el codificador de texto se descarga aparte."
+  },
+  "local": "gpu",
+  "benchmarks": [],
+  "description": "Reemplaza al HunyuanVideo original de 13B con un modelo de 8.3B más liviano y mejor. Licencia comunitaria con restricciones territoriales."
+ },
+ {
+  "id": "yolo26",
+  "name": "YOLO26",
+  "org": "Ultralytics",
+  "category": "vision",
+  "task": "Detección de objetos, segmentación, pose, OBB y clasificación en tiempo real",
+  "params": "2.4M a 55.7M",
+  "paramsB": 0.0557,
+  "released": "2026-01",
+  "license": "AGPL-3.0 (licencia comercial de pago disponible con Ultralytics)",
+  "versions": [
+   "YOLO11",
+   "YOLO26n",
+   "YOLO26s",
+   "YOLO26m",
+   "YOLO26l",
+   "YOLO26x"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/Ultralytics/YOLO26",
+   "kaggle": "https://www.kaggle.com/models/ultralytics/yolo26",
+   "github": "https://github.com/ultralytics/ultralytics",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2606.03748"
+  },
+  "weights": {
+   "fullGB": 0.12,
+   "fullPrecision": "fp32",
+   "q4GB": null,
+   "formats": [
+    "PyTorch (.pt)",
+    "ONNX",
+    "TensorRT",
+    "OpenVINO",
+    "CoreML",
+    "TFLite"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 0,
+   "minRamGB": 4,
+   "cpuOk": true,
+   "note": "Modelo muy pequeño: yolo26n pesa 5.5 MB y yolo26x 118.7 MB. Corre en CPU (yolo26n: 38.9 ms por imagen en CPU ONNX según la doc) y no necesita GPU. Ojo con la licencia AGPL-3.0 en productos comerciales."
+  },
+  "local": "facil",
+  "benchmarks": [
+   {
+    "name": "mAP COCO val 50-95 (YOLO26x, 640 px)",
+    "score": "57.5",
+    "source": "https://docs.ultralytics.com/models/yolo26/"
+   },
+   {
+    "name": "mAP COCO val 50-95 (YOLO26n, 640 px)",
+    "score": "40.9",
+    "source": "https://docs.ultralytics.com/models/yolo26/"
+   }
+  ],
+  "description": "Sucesor de YOLO11 (la lista sugerida): más rápido en CPU y con inferencia sin NMS. Tamaños de nano a extra grande, corre en casi cualquier equipo."
+ },
+ {
+  "id": "sam-3.1",
+  "name": "SAM 3.1",
+  "org": "Meta",
+  "category": "vision",
+  "task": "Segmentación y seguimiento en imágenes y video con texto, puntos o cajas",
+  "params": "848M",
+  "paramsB": 0.848,
+  "released": "2026-03",
+  "license": "SAM License (Meta)",
+  "versions": [
+   "SAM 2.1",
+   "SAM 3",
+   "SAM 3.1"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/facebook/sam3.1",
+   "kaggle": null,
+   "github": "https://github.com/facebookresearch/sam3",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2511.16719"
+  },
+  "weights": {
+   "fullGB": 3.5,
+   "fullPrecision": "fp32",
+   "q4GB": null,
+   "formats": [
+    "PyTorch (.pt)",
+    "safetensors (SAM 3)"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 8,
+   "minRamGB": 16,
+   "cpuOk": true,
+   "note": "Estimado: 3.5 GB en fp32 (~1.7 GB en fp16) x 1.2 da ~4 GB, más activaciones en video. En imágenes sueltas puede correr en CPU de forma lenta; para video conviene GPU de 8 GB o más. Repo con acceso restringido (aceptar licencia)."
+  },
+  "local": "facil",
+  "benchmarks": [
+   {
+    "name": "SA-Co/Gold cgF1, segmentación de instancias (SAM 3)",
+    "score": "54.1",
+    "source": "https://github.com/facebookresearch/sam3"
+   }
+  ],
+  "description": "Reemplaza a SAM 2: segmenta todas las instancias de un concepto dado por texto. SAM 3.1 agrega Object Multiplex para seguir muchos objetos más rápido. El benchmark citado es el de SAM 3 (base)."
+ },
+ {
+  "id": "depth-anything-3",
+  "name": "Depth Anything 3 (Large 1.1)",
+  "org": "ByteDance Seed",
+  "category": "vision",
+  "task": "Estimación de profundidad, pose de cámara y geometría desde una o varias imágenes",
+  "params": "0.35B",
+  "paramsB": 0.35,
+  "released": "2025-11",
+  "license": "Apache-2.0 (DA3-Large-1.1; Giant y Nested son CC BY-NC 4.0)",
+  "versions": [
+   "Depth Anything V2",
+   "DA3-Small",
+   "DA3-Base",
+   "DA3-Large",
+   "DA3-Giant",
+   "DA3-Metric-Large"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/depth-anything/DA3-LARGE-1.1",
+   "kaggle": null,
+   "github": "https://github.com/ByteDance-Seed/Depth-Anything-3",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2511.10647"
+  },
+  "weights": {
+   "fullGB": 1.6,
+   "fullPrecision": "fp32",
+   "q4GB": null,
+   "formats": [
+    "safetensors"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 4,
+   "minRamGB": 8,
+   "cpuOk": true,
+   "note": "Estimado: 1.6 GB en fp32 x 1.2 da ~2 GB, más activaciones según resolución: 4 GB de VRAM alcanzan. Corre en CPU, más lento. La variante Small (0.08B) es aún más liviana."
+  },
+  "local": "facil",
+  "benchmarks": [],
+  "description": "Sucesor de Depth Anything V2 (la lista sugerida): profundidad, pose y reconstrucción 3D con un transformer simple. Se usa la versión Large 1.1 por su licencia Apache-2.0."
+ },
+ {
+  "id": "dinov3-vit-l",
+  "name": "DINOv3 ViT-L/16",
+  "org": "Meta",
+  "category": "vision",
+  "task": "Extracción de características visuales (backbone para clasificación, segmentación, profundidad)",
+  "params": "300M (familia: 21M a 7B)",
+  "paramsB": 0.303,
+  "released": "2025-08",
+  "license": "DINOv3 License (Meta)",
+  "versions": [
+   "DINOv2",
+   "DINOv3 ViT-S/16",
+   "DINOv3 ViT-B/16",
+   "DINOv3 ViT-L/16",
+   "DINOv3 ViT-H+/16",
+   "DINOv3 ViT-7B/16",
+   "DINOv3 ConvNeXt"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/facebook/dinov3-vitl16-pretrain-lvd1689m",
+   "kaggle": null,
+   "github": "https://github.com/facebookresearch/dinov3",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2508.10104"
+  },
+  "weights": {
+   "fullGB": 1.2,
+   "fullPrecision": "fp32",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "PyTorch Hub"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 4,
+   "minRamGB": 8,
+   "cpuOk": true,
+   "note": "Estimado: 1.2 GB en fp32 x 1.2 más activaciones: 4 GB de VRAM alcanzan. Corre en CPU para extraer características. Repo con acceso restringido. Hay variantes S y B más chicas y una de 7B."
+  },
+  "local": "facil",
+  "benchmarks": [],
+  "description": "Sucesor de DINOv2 (la lista sugerida): backbone autosupervisado de Meta con características densas de alta calidad. Licencia propia, no es de código abierto estándar."
+ },
+ {
+  "id": "rf-detr-large",
+  "name": "RF-DETR Large",
+  "org": "Roboflow",
+  "category": "vision",
+  "task": "Detección de objetos en tiempo real",
+  "params": "33.9M",
+  "paramsB": 0.0339,
+  "released": "2025-11",
+  "license": "Apache-2.0",
+  "versions": [
+   "RT-DETR / RT-DETRv2",
+   "RF-DETR Nano",
+   "RF-DETR Small",
+   "RF-DETR Medium",
+   "RF-DETR Large"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/Roboflow/rf-detr-large",
+   "kaggle": null,
+   "github": "https://github.com/roboflow/rf-detr",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2511.09554"
+  },
+  "weights": {
+   "fullGB": 0.14,
+   "fullPrecision": "fp32",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "ONNX (comunidad)"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 2,
+   "minRamGB": 4,
+   "cpuOk": true,
+   "note": "Modelo de 34M de parámetros (136 MB). Corre en CPU de forma usable en imágenes sueltas; en GPU, 6.8 ms por imagen en una T4 con TensorRT según el README. Licencia Apache-2.0 sin restricciones comerciales."
+  },
+  "local": "facil",
+  "benchmarks": [
+   {
+    "name": "mAP COCO 50:95 (RF-DETR-L, medido por Roboflow)",
+    "score": "56.5",
+    "source": "https://github.com/roboflow/rf-detr"
+   }
+  ],
+  "description": "Detector transformer basado en DINOv2, sucesor práctico de RT-DETR (la lista sugerida). Alternativa con licencia Apache-2.0 frente a YOLO."
+ },
+ {
+  "id": "clip-vit-large-patch14",
+  "name": "CLIP ViT-L/14",
+  "org": "OpenAI",
+  "category": "vision",
+  "task": "Clasificación de imágenes zero-shot y embeddings imagen-texto",
+  "params": "428M",
+  "paramsB": 0.428,
+  "released": "2021-01",
+  "license": "MIT (repositorio openai/CLIP; la ficha de HF no declara licencia)",
+  "versions": [
+   "CLIP ViT-B/32",
+   "CLIP ViT-B/16",
+   "CLIP ViT-L/14",
+   "CLIP ViT-L/14@336"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/openai/clip-vit-large-patch14",
+   "kaggle": null,
+   "github": "https://github.com/openai/CLIP",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2103.00020"
+  },
+  "weights": {
+   "fullGB": 1.71,
+   "fullPrecision": "fp32",
+   "q4GB": null,
+   "formats": [
+    "safetensors",
+    "PyTorch (.bin)",
+    "TensorFlow",
+    "Flax"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 2,
+   "minRamGB": 8,
+   "cpuOk": true,
+   "note": "Estimado: 1.71 GB en fp32 x 1.2 = ~2 GB de VRAM. Corre bien en CPU para calcular embeddings. Solo inglés."
+  },
+  "local": "facil",
+  "benchmarks": [],
+  "description": "Modelo que alinea imágenes y texto, muy usado para búsqueda por imagen y como codificador en otros modelos. Antiguo, pero liviano y con soporte en todas partes."
+ },
+ {
+  "id": "siglip2-so400m-patch14-384",
+  "name": "SigLIP 2 So400m",
+  "org": "Google",
+  "category": "vision",
+  "task": "Clasificación zero-shot, recuperación imagen-texto y codificador visual para VLMs",
+  "params": "1.1B",
+  "paramsB": 1.136,
+  "released": "2025-02",
+  "license": "Apache-2.0",
+  "versions": [
+   "SigLIP 2 B/16",
+   "SigLIP 2 L/16",
+   "SigLIP 2 So400m/14",
+   "SigLIP 2 So400m/16"
+  ],
+  "links": {
+   "huggingface": "https://huggingface.co/google/siglip2-so400m-patch14-384",
+   "kaggle": null,
+   "github": "https://github.com/google-research/big_vision",
+   "ollama": null,
+   "paper": "https://arxiv.org/abs/2502.14786"
+  },
+  "weights": {
+   "fullGB": 4.5,
+   "fullPrecision": "fp32",
+   "q4GB": null,
+   "formats": [
+    "safetensors"
+   ]
+  },
+  "requirements": {
+   "minVramGB": 6,
+   "minRamGB": 12,
+   "cpuOk": true,
+   "note": "Estimado: 4.5 GB en fp32 (~2.3 GB en fp16) x 1.2: unos 3 a 6 GB de VRAM. Corre en CPU para embeddings. Hay versiones más chicas (B/16, L/16)."
+  },
+  "local": "facil",
+  "benchmarks": [],
+  "description": "Reemplazo moderno de CLIP con licencia Apache-2.0: mejor comprensión semántica y localización. Se usa también como codificador visual de modelos multimodales."
+ }
+]
