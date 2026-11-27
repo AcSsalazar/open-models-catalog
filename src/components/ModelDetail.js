@@ -2,6 +2,8 @@ import styles from './ModelDetail.module.css';
 import { escapeHtml } from '../lib/html.js';
 import { formatGB } from '../lib/hardware.js';
 import { LOCAL_LEVELS } from '../lib/schema.js';
+import { cloudOptionsFor } from '../lib/cloud.js';
+import PLATFORMS from '../data/cloud.json';
 
 const LINK_LABELS = {
   huggingface: 'Hugging Face',
@@ -21,6 +23,16 @@ function hostOf(url) {
   } catch {
     return 'fuente';
   }
+}
+
+/** Párrafo con las plataformas gratuitas donde cabe el modelo. */
+export function renderCloud(m, platforms = PLATFORMS) {
+  const options = cloudOptionsFor(m, platforms);
+  if (!options.length) {
+    return `<p class="${styles.note}">No cabe en la capa gratuita de ningún notebook o VM de la sección 3. Puede probarse con créditos gratis o, si está disponible, con una API.</p>`;
+  }
+  const items = options.map(({ platform, fit }) => `${link(platform.url, platform.name)} (${fit === 'gpu' ? 'GPU' : 'CPU, lento'})`);
+  return `<p class="${styles.note}">Cabe en: ${items.join(', ')}.</p>`;
 }
 
 /** HTML de la ficha completa de un modelo (va dentro de una fila de la tabla). */
@@ -49,6 +61,8 @@ export function renderDetail(m) {
         <p class="${styles.description}">${escapeHtml(m.description)}</p>
         <p class="${styles.subtitle}">Requisitos</p>
         <p class="${styles.note}">${escapeHtml(r.note || 'Sin notas.')}</p>
+        <p class="${styles.subtitle}">Gratis en la nube</p>
+        ${renderCloud(m)}
       </div>
       <dl class="${styles.meta}">
         <dt>Publicado</dt><dd>${escapeHtml(m.released ?? '-')}</dd>
