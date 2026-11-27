@@ -31,6 +31,26 @@ describe('filterModels', () => {
     expect(filterModels(models, { query: 'meta' }).map((x) => x.id)).toEqual(['llama']);
   });
 
+  it('muestra solo los que corren en el equipo', () => {
+    const big = m('grande', 'texto', { requirements: { minVramGB: 80, minRamGB: 160, cpuOk: false } });
+    const list = [...models, big];
+    expect(filterModels(list, { onlyFits: true }, { ramGB: 16, vramGB: 8 })).toHaveLength(3);
+    expect(filterModels(list, { onlyFits: false }, { ramGB: 16, vramGB: 8 })).toHaveLength(4);
+  });
+
+  it('ordena por VRAM, parámetros y fecha con los vacíos al final', () => {
+    const list = [
+      m('a', 'texto', { paramsB: 70, released: '2024-01', requirements: { minVramGB: 40 } }),
+      m('b', 'texto', { paramsB: null, released: null, requirements: { minVramGB: null } }),
+      m('c', 'texto', { paramsB: 1, released: '2025-06', requirements: { minVramGB: 2 } }),
+    ];
+    const ids = (sort) => filterModels(list, { sort }).map((x) => x.id).join('');
+    expect(ids('vram')).toBe('cab');
+    expect(ids('params')).toBe('cab');
+    expect(ids('fecha')).toBe('cab');
+    expect(ids('categoria')).toBe('abc');
+  });
+
   it('cuenta por categoría', () => {
     expect(countByCategory(models)).toEqual({ audio: 1, texto: 1, imagen: 1 });
   });
