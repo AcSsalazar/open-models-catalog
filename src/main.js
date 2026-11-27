@@ -37,7 +37,15 @@ const filters = createFilters(table.slot('filters'), {
   onChange: () => update(),
 });
 
-createCloud(content, { platforms: PLATFORMS, models: MODELS });
+createCloud(content, {
+  platforms: PLATFORMS,
+  models: MODELS,
+  onUse: (p) => {
+    hardware.set({ ramGB: p.ramGB ?? 0, vramGB: p.vramGB ?? 0 });
+    filters.set({ onlyFits: true });
+    table.root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  },
+});
 
 createPapers(content, { papers: PAPERS, models: MODELS, onModel: (id) => openModel(id) });
 
