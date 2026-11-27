@@ -1,0 +1,394 @@
+[
+  {
+    "id": "whisper-lm",
+    "title": "Whisper-LM: Improving ASR Models with Language Models for Low-Resource Languages",
+    "authors": "Xabier de Zuazo et al.",
+    "year": 2025,
+    "venue": "arXiv",
+    "area": "voz",
+    "models": [
+      "whisper-large-v3"
+    ],
+    "modelsText": "Whisper (tiny a large-v3) ajustado por fine-tuning y combinado con modelos de lenguaje n-grama y LLM",
+    "summary": "Mejoran Whisper en euskera, gallego, catalán y español combinándolo con modelos de lenguaje al decodificar. Con modelos de lenguaje estadísticos el error de palabras (WER) baja hasta un 51% en datos del mismo dominio y hasta un 34% en datos externos.",
+    "url": "https://arxiv.org/abs/2503.23542",
+    "code": "https://github.com/hitz-zentroa/whisper-lm"
+  },
+  {
+    "id": "cba-whisper-disartria",
+    "title": "CBA-Whisper: Curriculum Learning-Based AdaLoRA Fine-Tuning on Whisper for Low-Resource Dysarthric Speech Recognition",
+    "authors": "Tianyi Tan et al.",
+    "year": 2025,
+    "venue": "Interspeech 2025",
+    "area": "voz",
+    "models": [
+      "whisper-large-v3"
+    ],
+    "modelsText": "Whisper large-v2 ajustado con AdaLoRA y aprendizaje por currículo (familia Whisper large)",
+    "summary": "Adaptan Whisper para reconocer el habla de personas con disartria usando pocos datos. El WER baja de 17,82% a 10,51% (41% menos) y quedaron 2.º en el Speech Accessibility Project Challenge usando menos de 1/5 de los datos oficiales.",
+    "url": "https://doi.org/10.21437/Interspeech.2025-1705",
+    "code": null
+  },
+  {
+    "id": "asr-medico-acentos-africanos",
+    "title": "Performant ASR Models for Medical Entities in Accented Speech",
+    "authors": "Tejumade Afonja et al.",
+    "year": 2024,
+    "venue": "Interspeech 2024",
+    "area": "voz",
+    "models": [
+      "whisper-large-v3"
+    ],
+    "modelsText": "Evalúa 19 sistemas (Whisper small/medium/large, wav2vec2, HuBERT, WavLM y servicios comerciales); ajusta Whisper-medium y wav2vec2 XLSR-53",
+    "summary": "Miden qué tan bien transcriben términos médicos (fármacos, diagnósticos) distintos modelos ASR sobre inglés clínico con 93 acentos africanos (AfriSpeech-200). Ajustar el modelo con habla clínica acentuada reduce el WER médico entre 25% y 34% relativo.",
+    "url": "https://arxiv.org/abs/2406.12387",
+    "code": null
+  },
+  {
+    "id": "kid-whisper",
+    "title": "Kid-Whisper: Towards Bridging the Performance Gap in Automatic Speech Recognition for Children VS. Adults",
+    "authors": "Ahmed Adel Attia et al.",
+    "year": 2024,
+    "venue": "AAAI/ACM Conference on AI, Ethics, and Society (AIES 2024)",
+    "area": "voz",
+    "models": [
+      "whisper-large-v3"
+    ],
+    "modelsText": "Whisper-small y Whisper-medium ajustados con habla infantil (familia Whisper)",
+    "summary": "Adaptan Whisper al habla de niños, que los modelos generales reconocen peor que la de adultos. En el corpus MyST el WER baja de 13,93% a 9,11% con Whisper-small y de 13,23% a 8,61% con Whisper-medium.",
+    "url": "https://arxiv.org/abs/2309.07927",
+    "code": "https://github.com/ahmedadelattia/whisperKids"
+  },
+  {
+    "id": "whisperx",
+    "title": "WhisperX: Time-Accurate Speech Transcription of Long-Form Audio",
+    "authors": "Max Bain et al.",
+    "year": 2023,
+    "venue": "Interspeech 2023",
+    "area": "voz",
+    "models": [
+      "whisper-large-v3",
+      "pyannote-speaker-diarization-community-1"
+    ],
+    "modelsText": "Whisper large-v2 + VAD de pyannote.audio + wav2vec2 BASE_960H para alinear fonemas",
+    "summary": "Transcriben audio largo con marcas de tiempo precisas por palabra, cortando primero el audio con detección de voz. Logran el estado del arte en transcripción larga y una aceleración de 12 veces gracias al procesamiento por lotes.",
+    "url": "https://arxiv.org/abs/2303.00747",
+    "code": "https://github.com/m-bain/whisperX"
+  },
+  {
+    "id": "whisper-at",
+    "title": "Whisper-AT: Noise-Robust Automatic Speech Recognizers are Also Strong General Audio Event Taggers",
+    "authors": "Yuan Gong et al.",
+    "year": 2023,
+    "venue": "Interspeech 2023",
+    "area": "voz",
+    "models": [
+      "whisper-large-v3"
+    ],
+    "modelsText": "Whisper-Large congelado (también small/base/medium) con un clasificador ligero de eventos de audio encima",
+    "summary": "Muestran que Whisper, además de transcribir, codifica los sonidos de fondo, y lo aprovechan para reconocer eventos de audio en la misma pasada con menos de 1% de cómputo extra. Logran 41,5 mAP en AudioSet y 91,7% de exactitud en ESC-50.",
+    "url": "https://arxiv.org/abs/2307.03183",
+    "code": "https://github.com/yuangongnd/whisper-at"
+  },
+  {
+    "id": "emoclip",
+    "title": "EmoCLIP: A Vision-Language Method for Zero-Shot Video Facial Expression Recognition",
+    "authors": "Niki Maria Foteinopoulou, Ioannis Patras",
+    "year": 2024,
+    "venue": "IEEE FG 2024",
+    "area": "emociones",
+    "models": [
+      "clip-vit-large-patch14"
+    ],
+    "modelsText": "CLIP ViT-B/32 preentrenado, ajustado con descripciones textuales por muestra (familia CLIP)",
+    "summary": "Reconocen expresiones faciales en video sin ejemplos de entrenamiento de cada clase (zero-shot), usando descripciones en lenguaje natural. Superan a CLIP en más de 10% en WAR y logran correlación de hasta 0,85 al estimar la severidad de síntomas de esquizofrenia.",
+    "url": "https://arxiv.org/abs/2310.16640",
+    "code": "https://github.com/NickyFot/EmoCLIP"
+  },
+  {
+    "id": "dfer-clip",
+    "title": "Prompting Visual-Language Models for Dynamic Facial Expression Recognition",
+    "authors": "Zengqun Zhao, Ioannis Patras",
+    "year": 2023,
+    "venue": "BMVC 2023",
+    "area": "emociones",
+    "models": [
+      "clip-vit-large-patch14"
+    ],
+    "modelsText": "CLIP ViT-B/32 con modelo temporal Transformer y descripciones generadas por LLM (familia CLIP)",
+    "summary": "DFER-CLIP reconoce emociones en videos de rostros en condiciones reales combinando CLIP con descripciones del comportamiento facial de cada emoción. Alcanza el estado del arte en DFEW, FERV39k y MAFW (71,25% WAR en DFEW).",
+    "url": "https://arxiv.org/abs/2308.13382",
+    "code": "https://github.com/zengqunzhao/DFER-CLIP"
+  },
+  {
+    "id": "cliper",
+    "title": "CLIPER: A Unified Vision-Language Framework for In-the-Wild Facial Expression Recognition",
+    "authors": "Hanting Li et al.",
+    "year": 2024,
+    "venue": "IEEE ICME 2024",
+    "area": "emociones",
+    "models": [
+      "clip-vit-large-patch14"
+    ],
+    "modelsText": "CLIP ViT-B/16 (imágenes) y ViT-B/32 (video) con descriptores de texto aprendibles (familia CLIP)",
+    "summary": "Proponen un marco basado en CLIP para reconocer expresiones faciales tanto en fotos como en video. Logran el estado del arte en cinco datasets, por ejemplo 91,61% de exactitud en RAF-DB.",
+    "url": "https://arxiv.org/abs/2303.00193",
+    "code": "https://github.com/muse1998/CLIPER"
+  },
+  {
+    "id": "emovit",
+    "title": "EmoVIT: Revolutionizing Emotion Insights with Visual Instruction Tuning",
+    "authors": "Hongxia Xie et al.",
+    "year": 2024,
+    "venue": "CVPR 2024",
+    "area": "emociones",
+    "models": [],
+    "modelsText": "InstructBLIP (modelo visión-lenguaje abierto) ajustado con instrucciones visuales sobre emociones",
+    "summary": "Generan automáticamente datos de instrucciones sobre emociones y ajustan un modelo visión-lenguaje para clasificar emociones, razonar sobre ellas y entender el humor en imágenes. Además proponen un benchmark para este tipo de ajuste.",
+    "url": "https://arxiv.org/abs/2404.16670",
+    "code": "https://github.com/aimmemotion/EmoVIT"
+  },
+  {
+    "id": "ser-whisper-multilingue",
+    "title": "Using Large Speech Models for Feature Extraction in Cross-Lingual Speech Emotion Recognition",
+    "authors": "Federico D'Asaro et al.",
+    "year": 2024,
+    "venue": "CLiC-it 2024 (CEUR Workshop Proceedings)",
+    "area": "emociones",
+    "models": [
+      "whisper-large-v3"
+    ],
+    "modelsText": "Whisper y Wav2Vec 2.0 / XLS-R como extractores de características para emoción en la voz (tallas de Whisper no indicadas en el resumen)",
+    "summary": "Comparan Whisper y Wav2Vec 2.0 para reconocer emociones en la voz en 8 idiomas, incluido el español. Whisper funciona mejor con un clasificador lineal sobre su última capa y gana por su preentrenamiento multilingüe en italiano, francés, español y alemán.",
+    "url": "https://aclanthology.org/2024.clicit-1.31/",
+    "code": null
+  },
+  {
+    "id": "medsam",
+    "title": "Segment Anything in Medical Images",
+    "authors": "Jun Ma et al.",
+    "year": 2024,
+    "venue": "Nature Communications",
+    "area": "salud",
+    "models": [
+      "sam-3.1"
+    ],
+    "modelsText": "MedSAM: SAM (ViT-Base) ajustado por fine-tuning (familia SAM)",
+    "summary": "Ajustan SAM con 1,57 millones de pares imagen-máscara de 10 modalidades médicas para segmentar órganos y lesiones. En validación externa de cáncer de nasofaringe mejora el Dice un 52,3% sobre SAM original.",
+    "url": "https://doi.org/10.1038/s41467-024-44824-z",
+    "code": "https://github.com/bowang-lab/MedSAM"
+  },
+  {
+    "id": "sam-imagen-medica-estudio",
+    "title": "Segment Anything Model for Medical Image Analysis: an Experimental Study",
+    "authors": "Maciej A. Mazurowski et al.",
+    "year": 2023,
+    "venue": "Medical Image Analysis",
+    "area": "salud",
+    "models": [
+      "sam-3.1"
+    ],
+    "modelsText": "Segment Anything (SAM original) en modo zero-shot con prompts de punto y caja",
+    "summary": "Evalúan SAM sin entrenamiento extra en 19 datasets médicos de distintas modalidades. El desempeño varía mucho (IoU de 0,11 en columna por resonancia a 0,87 en cadera por rayos X) y funciona mejor con cajas que con puntos.",
+    "url": "https://doi.org/10.1016/j.media.2023.102918",
+    "code": "https://github.com/mazurowski-lab/segment-anything-medical-evaluation"
+  },
+  {
+    "id": "dinov2-radiologia",
+    "title": "Evaluating General Purpose Vision Foundation Models for Medical Image Analysis: An Experimental Study of DINOv2 on Radiology Benchmarks",
+    "authors": "Mohammed Baharoon et al.",
+    "year": 2023,
+    "venue": "arXiv",
+    "area": "salud",
+    "models": [
+      "dinov3-vit-l"
+    ],
+    "modelsText": "DINOv2 ViT-S/14, ViT-B/14, ViT-L/14 y ViT-g/14 (familia DINO)",
+    "summary": "Prueban DINOv2, entrenado con imágenes naturales, en más de 200 evaluaciones de radiología (rayos X, TC y RM) para clasificar enfermedades y segmentar órganos. Muestran que generaliza bien y supera a modelos supervisados y autosupervisados de referencia.",
+    "url": "https://arxiv.org/abs/2312.02366",
+    "code": "https://github.com/MohammedSB/DINOv2ForRadiology"
+  },
+  {
+    "id": "llm-abierto-informes-radiologia",
+    "title": "Performance of an Open-Source Large Language Model in Extracting Information from Free-Text Radiology Reports",
+    "authors": "Bastien Le Guellec et al.",
+    "year": 2024,
+    "venue": "Radiology: Artificial Intelligence",
+    "area": "salud",
+    "models": [],
+    "modelsText": "Vicuna-13B v1.3 (LLM abierto derivado de LLaMA) ejecutado localmente, sin ajuste",
+    "summary": "Usan un LLM abierto corriendo en el hospital (sin enviar datos a terceros) para extraer información de 2.398 informes de resonancia cerebral en francés. Detecta cefalea en el contexto clínico con 99% de exactitud y clasifica estudios normales/anormales con 97,8%.",
+    "url": "https://doi.org/10.1148/ryai.230364",
+    "code": null
+  },
+  {
+    "id": "roentgen",
+    "title": "RoentGen: Vision-Language Foundation Model for Chest X-ray Generation",
+    "authors": "Pierre Chambon et al.",
+    "year": 2022,
+    "venue": "arXiv",
+    "area": "generacion",
+    "models": [
+      "stable-diffusion-1.5"
+    ],
+    "modelsText": "Stable Diffusion v1.4 ajustado con radiografías de tórax e informes de MIMIC-CXR (familia SD 1.x)",
+    "summary": "Ajustan Stable Diffusion para generar radiografías de tórax realistas a partir de texto médico. Un clasificador entrenado con datos reales más sintéticos mejora cerca de 5%, y la representación de neumotórax del codificador de texto mejora un 25%.",
+    "url": "https://arxiv.org/abs/2211.12737",
+    "code": null
+  },
+  {
+    "id": "da-fusion",
+    "title": "Effective Data Augmentation With Diffusion Models",
+    "authors": "Brandon Trabucco et al.",
+    "year": 2024,
+    "venue": "ICLR 2024",
+    "area": "generacion",
+    "models": [
+      "stable-diffusion-1.5"
+    ],
+    "modelsText": "Stable Diffusion v1.4 (CompVis) con textual inversion para editar imágenes (familia SD 1.x)",
+    "summary": "Usan Stable Diffusion para crear variaciones de imágenes de entrenamiento cuando hay pocos ejemplos, incluido un caso real de detección de maleza. Mejoran la clasificación con pocos ejemplos entre 5 y 15 puntos de exactitud frente al aumento de datos clásico.",
+    "url": "https://arxiv.org/abs/2302.07944",
+    "code": "https://github.com/brandontrabucco/da-fusion"
+  },
+  {
+    "id": "plagas-tabaco-yolov8",
+    "title": "Efficient Tobacco Pest Detection in Complex Environments Using an Enhanced YOLOv8 Model",
+    "authors": "Daozong Sun et al.",
+    "year": 2024,
+    "venue": "Agriculture (MDPI)",
+    "area": "agro-ecologia",
+    "models": [
+      "yolo26"
+    ],
+    "modelsText": "YOLOv8l modificado (AFPN, SimAM, VoV-GSCSP) (familia YOLO de Ultralytics)",
+    "summary": "Aligeran YOLOv8 para detectar cuatro plagas comunes del tabaco en entornos complejos. Reducen los parámetros un 52,66% y aun así suben el mAP@0.5 en 1%, superando a YOLOv5m, YOLOv6m y YOLOv8m.",
+    "url": "https://doi.org/10.3390/agriculture14030353",
+    "code": null
+  },
+  {
+    "id": "camaras-trampa-zero-shot",
+    "title": "Towards Zero-Shot Camera Trap Image Categorization",
+    "authors": "Jiří Vyskočil, Lukas Picek",
+    "year": 2024,
+    "venue": "arXiv",
+    "area": "agro-ecologia",
+    "models": [
+      "dinov3-vit-l",
+      "sam-3.1"
+    ],
+    "modelsText": "DINOv2 (ViT-B y ViT-g) + FAISS, MegaDetector, SAM y BioCLIP (familias DINO y SAM)",
+    "summary": "Clasifican animales en fotos de cámaras trampa sin entrenar para cada sitio, recortando con MegaDetector y comparando con DINOv2. El sistema zero-shot logra 83,2% (CCT20) y 87,5% (CEF22) de exactitud top-1.",
+    "url": "https://arxiv.org/abs/2410.12769",
+    "code": null
+  },
+  {
+    "id": "bioclip",
+    "title": "BioCLIP: A Vision Foundation Model for the Tree of Life",
+    "authors": "Samuel Stevens et al.",
+    "year": 2024,
+    "venue": "CVPR 2024 (oral)",
+    "area": "agro-ecologia",
+    "models": [
+      "clip-vit-large-patch14"
+    ],
+    "modelsText": "CLIP ViT-B/16 de OpenAI como punto de partida, entrenado con TreeOfLife-10M (familia CLIP)",
+    "summary": "Parten de CLIP y lo entrenan con 10 millones de imágenes de especies para identificar organismos de todo el árbol de la vida. Supera a los modelos base en clasificación biológica fina por 16 a 17 puntos absolutos.",
+    "url": "https://arxiv.org/abs/2311.18803",
+    "code": "https://imageomics.github.io/bioclip"
+  },
+  {
+    "id": "sam-teledeteccion",
+    "title": "The Segment Anything Model (SAM) for Remote Sensing Applications: From Zero to One Shot",
+    "authors": "Lucas Prado Osco et al.",
+    "year": 2023,
+    "venue": "International Journal of Applied Earth Observation and Geoinformation",
+    "area": "vision",
+    "models": [
+      "sam-3.1"
+    ],
+    "modelsText": "Segment Anything (SAM original) con prompts de caja, punto y texto, más ajuste one-shot",
+    "summary": "Evalúan SAM para segmentar imágenes satelitales y aéreas sin entrenamiento y con un solo ejemplo. Su método one-shot automático mejora la precisión, aunque SAM sufre con imágenes de baja resolución.",
+    "url": "https://arxiv.org/abs/2306.16623",
+    "code": null
+  },
+  {
+    "id": "openvla",
+    "title": "OpenVLA: An Open-Source Vision-Language-Action Model",
+    "authors": "Moo Jin Kim et al.",
+    "year": 2024,
+    "venue": "CoRL 2024 (PMLR 270)",
+    "area": "vision",
+    "models": [
+      "llama-3.1-8b-instruct",
+      "dinov3-vit-l",
+      "siglip2-so400m-patch14-384"
+    ],
+    "modelsText": "Llama 2 7B + codificadores visuales DINOv2 y SigLIP (familias Llama, DINO y SigLIP)",
+    "summary": "Construyen un modelo abierto de 7B parámetros que convierte imágenes e instrucciones en acciones de robot, entrenado con 970 mil demostraciones reales. Supera a RT-2-X (55B) en 16,5 puntos de éxito en 29 tareas y se puede ajustar en GPUs de consumo con LoRA.",
+    "url": "https://arxiv.org/abs/2406.09246",
+    "code": "https://openvla.github.io"
+  },
+  {
+    "id": "signvlm",
+    "title": "SignVLM: a pre-trained large video model for sign language recognition",
+    "authors": "Hamzah Luqman",
+    "year": 2025,
+    "venue": "PeerJ Computer Science",
+    "area": "accesibilidad",
+    "models": [
+      "clip-vit-large-patch14"
+    ],
+    "modelsText": "Codificador visual de CLIP (ViT) + decodificador Transformer temporal (variante de CLIP no especificada)",
+    "summary": "Reconocen señas en video para lenguas de señas con pocos datos (árabe, americana, argentina y turca). Logran 99,4% en LSA64 (lengua de señas argentina) y estado del arte en KArSL.",
+    "url": "https://doi.org/10.7717/peerj-cs.3112",
+    "code": "https://github.com/Hamzah-Luqman/signVLM"
+  },
+  {
+    "id": "vocaleyes",
+    "title": "VocalEyes: Enhancing Environmental Perception for the Visually Impaired through Vision-Language Models and Distance-Aware Object Detection",
+    "authors": "Kunal Chavan et al.",
+    "year": 2025,
+    "venue": "arXiv",
+    "area": "accesibilidad",
+    "models": [
+      "florence-2-large"
+    ],
+    "modelsText": "Florence-2 (variante grande) ajustado y cuantizado a 4 bits + Parler TTS Mini para voz",
+    "summary": "Sistema que describe en voz alta el entorno a personas ciegas, corriendo en un dispositivo de bajo consumo (Jetson Orin Nano). Combina descripción de escenas con detección de objetos y distancia.",
+    "url": "https://arxiv.org/abs/2503.16488",
+    "code": null
+  },
+  {
+    "id": "sefl-retroalimentacion",
+    "title": "SEFL: A Framework for Generating Synthetic Educational Assignment Feedback with LLM Agents",
+    "authors": "Mike Zhang et al.",
+    "year": 2025,
+    "venue": "LREC 2026",
+    "area": "lenguaje",
+    "models": [
+      "llama-3.3-70b-instruct",
+      "llama-3.1-8b-instruct"
+    ],
+    "modelsText": "Llama-3.1-70B como agentes profesor/estudiante; se ajustan Qwen2.5-0.5B/14B, Llama-3.2-1B/3B y Llama-3.1-8B",
+    "summary": "Dos LLM abiertos simulan a profesor y estudiante para crear 19,8 mil ejemplos de retroalimentación de tareas, y con ellos ajustan modelos pequeños. Los modelos ajustados dan mejor retroalimentación que sus versiones sin ajustar, según jueces humanos y LLM.",
+    "url": "https://arxiv.org/abs/2502.12927",
+    "code": "https://github.com/jjzha/sefl"
+  },
+  {
+    "id": "rag-multilingue",
+    "title": "Retrieval-augmented generation in multilingual settings",
+    "authors": "Nadezhda Chirkova et al.",
+    "year": 2024,
+    "venue": "KnowLLM Workshop @ ACL 2024",
+    "area": "lenguaje",
+    "models": [
+      "bge-m3",
+      "llama-3.1-8b-instruct"
+    ],
+    "modelsText": "BGE-M3 (recuperador) + BGE-reranker-v2-m3; generadores Llama-2-7B-chat, SOLAR-10.7B, Mixtral-8x7B y Command-R-35B",
+    "summary": "Arman sistemas RAG (búsqueda + generación) con modelos abiertos para preguntas y documentos en 13 idiomas. Funcionan bien de base, pero hace falta ajustar el prompt para que respondan en el idioma del usuario y adaptar las métricas.",
+    "url": "https://doi.org/10.18653/v1/2024.knowllm-1.15",
+    "code": "https://github.com/naver/bergen"
+  }
+]
