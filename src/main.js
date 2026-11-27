@@ -1,6 +1,8 @@
 import './styles/global.css';
 import { createHardwareForm } from './components/HardwareForm.js';
 import { createModelTable } from './components/ModelTable.js';
+import { createFilters } from './components/Filters.js';
+import { filterModels } from './lib/filter.js';
 import { MODELS } from './data/index.js';
 
 const app = document.querySelector('#app');
@@ -21,8 +23,14 @@ const hardware = createHardwareForm(content, {
 
 const table = createModelTable(content);
 
+const filters = createFilters(table.slot('filters'), {
+  models: MODELS,
+  onChange: () => update(),
+});
+
 function update() {
-  table.render(MODELS, hardware.value);
+  const visible = filterModels(MODELS, filters.value, hardware.value);
+  table.render(visible, hardware.value);
 }
 
 update();
