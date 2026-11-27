@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { renderCloud, renderDetail } from './ModelDetail.js';
+import { renderCloud, renderDetail, renderPapers } from './ModelDetail.js';
 import { MODELS } from '../data/index.js';
 import { escapeHtml } from '../lib/html.js';
 
@@ -33,5 +33,13 @@ describe('renderCloud', () => {
 
   it('avisa si no cabe en ninguna', () => {
     expect(renderCloud(model(80, 128, false), platforms)).toContain('No cabe');
+  });
+});
+
+describe('renderPapers', () => {
+  it('muestra los papers que citan el modelo y nada si no hay', () => {
+    const whisper = MODELS.find((m) => m.id === 'whisper-large-v3');
+    expect(renderPapers(whisper)).toContain('Papers que lo usan');
+    expect(renderPapers({ id: 'no-existe' })).toBe('');
   });
 });

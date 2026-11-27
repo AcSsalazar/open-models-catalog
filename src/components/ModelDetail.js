@@ -4,6 +4,8 @@ import { formatGB } from '../lib/hardware.js';
 import { LOCAL_LEVELS } from '../lib/schema.js';
 import { cloudOptionsFor } from '../lib/cloud.js';
 import PLATFORMS from '../data/cloud.json';
+import PAPERS from '../data/papers.json';
+import { papersForModel } from '../lib/papers.js';
 
 const LINK_LABELS = {
   huggingface: 'Hugging Face',
@@ -33,6 +35,17 @@ export function renderCloud(m, platforms = PLATFORMS) {
   }
   const items = options.map(({ platform, fit }) => `${link(platform.url, platform.name)} (${fit === 'gpu' ? 'GPU' : 'CPU, lento'})`);
   return `<p class="${styles.note}">Cabe en: ${items.join(', ')}.</p>`;
+}
+
+/** Lista corta de papers del catálogo que usan el modelo (vacía si no hay). */
+export function renderPapers(m, papers = PAPERS) {
+  const list = papersForModel(m.id, papers);
+  if (!list.length) return '';
+  return `
+    <p class="${styles.subtitle}">Papers que lo usan</p>
+    <ul class="${styles.papers}">
+      ${list.map((p) => `<li>${link(p.url, p.title)} <span class="${styles.note}">(${escapeHtml(p.venue)}, ${p.year})</span></li>`).join('')}
+    </ul>`;
 }
 
 /** HTML de la ficha completa de un modelo (va dentro de una fila de la tabla). */
@@ -78,6 +91,7 @@ export function renderDetail(m) {
         <div class="${styles.links}">${links}</div>
         <p class="${styles.subtitle}">Benchmarks</p>
         ${benchmarks}
+        ${renderPapers(m)}
       </div>
     </div>
   `;
