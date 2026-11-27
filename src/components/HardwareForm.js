@@ -80,8 +80,10 @@ export function createHardwareForm(container, { onChange } = {}) {
 
   paint();
   return {
+    root,
     get value() {
       return value;
     },
+    set,
   };
 }

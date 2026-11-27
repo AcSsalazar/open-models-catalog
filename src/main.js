@@ -36,6 +36,12 @@ const filters = createFilters(table.slot('filters'), {
 createGuide(content);
 createContents(content, content);
 
+/** Quita los filtros, abre la ficha del modelo y la muestra. */
+function openModel(id) {
+  filters.set({ category: 'todas', query: '', onlyFits: false });
+  table.open(id);
+}
+
 function update() {
   const visible = filterModels(MODELS, filters.value, hardware.value);
   table.render(visible, hardware.value);

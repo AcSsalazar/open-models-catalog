@@ -84,5 +84,15 @@ export function createModelTable(container, { onSelect } = {}) {
     onSelect?.(row.dataset.id, row);
   });
 
-  return { root, render, slot: (name) => root.querySelector(`[data-slot="${name}"]`) };
+  /** Abre la ficha del modelo (si está visible) y la lleva a la vista. */
+  function open(id) {
+    const row = tbody.querySelector(`[data-id="${CSS.escape(id)}"]`);
+    const model = current.find((m) => m.id === id);
+    if (!row || !model) return false;
+    if (row.getAttribute('aria-expanded') !== 'true') toggleDetail(row, model, 8);
+    row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return true;
+  }
+
+  return { root, render, open, slot: (name) => root.querySelector(`[data-slot="${name}"]`) };
 }
