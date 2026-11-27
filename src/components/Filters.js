@@ -1,8 +1,8 @@
 import styles from './Filters.module.css';
 import { CATEGORIES } from '../lib/schema.js';
-import { countByCategory, DEFAULT_FILTERS } from '../lib/filter.js';
+import { countByCategory, DEFAULT_FILTERS, SORTS } from '../lib/filter.js';
 
-/** Filtros del catálogo: categoría y búsqueda. */
+/** Filtros del catálogo: categoría, búsqueda, solo los que caben y orden. */
 export function createFilters(container, { models, onChange }) {
   let value = { ...DEFAULT_FILTERS };
   const counts = countByCategory(models);
@@ -20,6 +20,16 @@ export function createFilters(container, { models, onChange }) {
     </div>
     <div class="${styles.row}" data-slot="row">
       <input type="search" class="${styles.search}" placeholder="Buscar por nombre, organización, tarea o licencia" aria-label="Buscar" />
+      <label class="${styles.option}">
+        <input type="checkbox" data-role="fits" />
+        Solo los que corren en mi equipo
+      </label>
+      <label class="${styles.option}">
+        Ordenar por
+        <select data-role="sort">
+          ${Object.entries(SORTS).map(([id, label]) => `<option value="${id}">${label}</option>`).join('')}
+        </select>
+      </label>
     </div>
   `;
   container.append(root);
@@ -43,6 +53,8 @@ export function createFilters(container, { models, onChange }) {
     if (category) set({ category });
   });
   root.querySelector('input[type="search"]').addEventListener('input', (e) => set({ query: e.target.value }));
+  root.querySelector('[data-role="fits"]').addEventListener('change', (e) => set({ onlyFits: e.target.checked }));
+  root.querySelector('[data-role="sort"]').addEventListener('change', (e) => set({ sort: e.target.value }));
 
   paint();
   return {
