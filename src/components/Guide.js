@@ -65,6 +65,25 @@ export function createGuide(container) {
       a cambio de tardar más. Los valores del catálogo son estimaciones razonables, no garantías: cada ficha explica de dónde salen.
     </p>
 
+    <h3 class="${styles.subtitle}">En un notebook gratis (Colab o Kaggle)</h3>
+    <ol class="${styles.steps}">
+      <li>Activa la GPU. En Colab: <em>Entorno de ejecución, Cambiar tipo de entorno de ejecución, GPU T4</em>.
+        En Kaggle: <em>Settings, Accelerator, GPU T4 x2</em> (pide verificar el teléfono).</li>
+      <li>Comprueba que la ves con <code>!nvidia-smi</code>.</li>
+      <li>Instala las librerías: <code>!pip install -U transformers accelerate</code>.</li>
+      <li>Carga el modelo en la GPU. Por ejemplo, para transcribir audio con Whisper:</li>
+    </ol>
+    <pre class="${styles.code}"><code>from transformers import pipeline
+
+asr = pipeline("automatic-speech-recognition",
+               model="openai/whisper-large-v3-turbo", device=0)
+print(asr("audio.mp3")["text"])</code></pre>
+    <p>
+      Los modelos de lenguaje que no caben en 15 GB se pueden cargar en 4 bits con <code>bitsandbytes</code> o como GGUF con llama.cpp.
+      Cada sesión se borra al cerrarse: guarda los pesos en Google Drive (Colab) o agrégalos como <em>Input</em> del notebook (Kaggle)
+      para no descargarlos cada vez.
+    </p>
+
     <h3 class="${styles.subtitle}">Herramientas para correrlos</h3>
     <ul class="${styles.tools}">
       ${TOOLS.map(([name, url, text]) => `<li><a href="${url}" target="_blank" rel="noopener noreferrer">${name}</a>: ${text}</li>`).join('')}

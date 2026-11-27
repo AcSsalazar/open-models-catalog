@@ -99,3 +99,22 @@
 .tools a {
   color: var(--accent);
 }
+
+.steps {
+  margin: 0;
+  padding-left: 1.4em;
+}
+
+.steps li {
+  margin: 2px 0;
+}
+
+.code {
+  margin: 0;
+  padding: 8px 12px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  text-align: left;
+  border-left: 2px solid var(--hairline);
+}
