@@ -16,3 +16,16 @@ describe('catálogo', () => {
     }
   });
 });
+
+describe('nivel para correr en local', () => {
+  it('coincide con la VRAM mínima', () => {
+    for (const m of MODELS) {
+      const vram = m.requirements.minVramGB;
+      if (vram == null) continue;
+      if (m.local === 'facil') expect(vram, m.id).toBeLessThanOrEqual(8);
+      if (m.local === 'gpu') expect(vram, m.id).toBeGreaterThan(8);
+      if (m.local === 'gpu') expect(vram, m.id).toBeLessThanOrEqual(24);
+      if (m.local === 'dificil') expect(vram, m.id).toBeGreaterThan(24);
+    }
+  });
+});

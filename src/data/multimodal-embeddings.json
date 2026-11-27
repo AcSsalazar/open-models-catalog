@@ -1,1 +1,688 @@
-[]
+[
+  {
+    "id": "qwen3.5-9b",
+    "name": "Qwen3.5 9B",
+    "org": "Alibaba (Qwen)",
+    "category": "multimodal",
+    "task": "Chat con imagen, OCR, documentos y video",
+    "params": "9.65B",
+    "paramsB": 9.65,
+    "released": "2026-02",
+    "license": "Apache 2.0",
+    "versions": [
+      "Qwen3.5 0.8B",
+      "Qwen3.5 2B",
+      "Qwen3.5 4B",
+      "Qwen3.5 9B",
+      "Qwen3.5 27B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/Qwen/Qwen3.5-9B",
+      "kaggle": null,
+      "github": null,
+      "ollama": "https://ollama.com/library/qwen3.5",
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 19.3,
+      "fullPrecision": "bf16",
+      "q4GB": 5.7,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 8,
+      "minRamGB": 10,
+      "cpuOk": true,
+      "note": "bf16 necesita unos 24 GB. Q4_K_M (5.7 GB, repo unsloth) más el proyector de visión cabe justo en 8 GB; 12 GB da margen para contexto largo. En CPU funciona lento."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "MMMU",
+        "score": "78.4",
+        "source": "https://huggingface.co/Qwen/Qwen3.5-9B"
+      },
+      {
+        "name": "MathVista (mini)",
+        "score": "85.7",
+        "source": "https://huggingface.co/Qwen/Qwen3.5-9B"
+      },
+      {
+        "name": "OCRBench",
+        "score": "89.2",
+        "source": "https://huggingface.co/Qwen/Qwen3.5-9B"
+      }
+    ],
+    "description": "Sucesor de Qwen2.5-VL y Qwen3-VL: modelo multimodal nativo (texto, imagen y video). Multilingüe, incluido español. Buena opción general para visión en local."
+  },
+  {
+    "id": "llama-3.2-11b-vision-instruct",
+    "name": "Llama 3.2 11B Vision Instruct",
+    "org": "Meta",
+    "category": "multimodal",
+    "task": "Preguntas sobre imágenes, gráficos y documentos",
+    "params": "10.67B",
+    "paramsB": 10.67,
+    "released": "2024-09",
+    "license": "Llama 3.2 Community License",
+    "versions": [
+      "Llama 3.2 11B Vision",
+      "Llama 3.2 90B Vision"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct",
+      "kaggle": null,
+      "github": "https://github.com/meta-llama/llama-models/tree/main/models/llama3_2",
+      "ollama": "https://ollama.com/library/llama3.2-vision",
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 21.3,
+      "fullPrecision": "bf16",
+      "q4GB": 7.8,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 10,
+      "minRamGB": 10,
+      "cpuOk": true,
+      "note": "bf16 ocupa 21.3 GB. El Q4 de 7.8 GB sale de la página de Ollama e incluye el codificador de visión. El repo oficial exige aceptar la licencia para descargar."
+    },
+    "local": "gpu",
+    "benchmarks": [
+      {
+        "name": "MMMU (val, CoT)",
+        "score": "50.7",
+        "source": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct"
+      },
+      {
+        "name": "ChartQA (test, CoT)",
+        "score": "83.4",
+        "source": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct"
+      },
+      {
+        "name": "DocVQA (test)",
+        "score": "88.4",
+        "source": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct"
+      }
+    ],
+    "description": "Primer modelo con visión de la familia Llama. Fuerte en gráficos y documentos. Con imágenes, el idioma soportado oficialmente es inglés."
+  },
+  {
+    "id": "pixtral-12b",
+    "name": "Pixtral 12B",
+    "org": "Mistral AI",
+    "category": "multimodal",
+    "task": "Comprensión de imágenes, gráficos y documentos",
+    "params": "12.4B",
+    "paramsB": 12.4,
+    "released": "2024-09",
+    "license": "Apache 2.0",
+    "versions": [
+      "Pixtral 12B",
+      "Pixtral Large"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/mistralai/Pixtral-12B-2409",
+      "kaggle": null,
+      "github": null,
+      "ollama": null,
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 25.4,
+      "fullPrecision": "bf16",
+      "q4GB": 7.5,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 12,
+      "minRamGB": 10,
+      "cpuOk": true,
+      "note": "bf16 ocupa 25.4 GB. Q4_K_M de 7.5 GB (repo ggml-org) sin contar el proyector de visión: conviene GPU de 12 GB. Cantidad de parámetros aproximada (la ficha no la publica)."
+    },
+    "local": "gpu",
+    "benchmarks": [
+      {
+        "name": "MMMU (CoT)",
+        "score": "52.5",
+        "source": "https://huggingface.co/mistralai/Pixtral-12B-2409"
+      },
+      {
+        "name": "ChartQA (CoT)",
+        "score": "81.8",
+        "source": "https://huggingface.co/mistralai/Pixtral-12B-2409"
+      }
+    ],
+    "description": "Modelo multimodal de Mistral con codificador de visión propio e imágenes de tamaño variable. Licencia Apache 2.0."
+  },
+  {
+    "id": "minicpm-v-4.5",
+    "name": "MiniCPM-V 4.5",
+    "org": "OpenBMB",
+    "category": "multimodal",
+    "task": "Imagen, OCR y video en equipos modestos",
+    "params": "8.7B",
+    "paramsB": 8.7,
+    "released": "2025-08",
+    "license": "Apache 2.0",
+    "versions": [
+      "MiniCPM-V 4.5",
+      "MiniCPM-V 4.0",
+      "MiniCPM-o 2.6"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/openbmb/MiniCPM-V-4_5",
+      "kaggle": null,
+      "github": "https://github.com/OpenBMB/MiniCPM-V",
+      "ollama": "https://ollama.com/library/minicpm-v",
+      "paper": "https://arxiv.org/abs/2509.18154"
+    },
+    "weights": {
+      "fullGB": 17.4,
+      "fullPrecision": "bf16",
+      "q4GB": 5,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 8,
+      "minRamGB": 8,
+      "cpuOk": true,
+      "note": "bf16 requiere unos 21 GB. Q4_K_M de 5.0 GB (repo oficial openbmb) más 1.1 GB del proyector: entra justo en 8 GB. En CPU es usable pero lento."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "OpenCompass (promedio de 8 benchmarks)",
+        "score": "77.0",
+        "source": "https://huggingface.co/openbmb/MiniCPM-V-4_5"
+      }
+    ],
+    "description": "Modelo de 8B pensado para correr en equipos propios. Procesa imágenes de alta resolución con pocos tokens visuales y también video. Mejor desempeño en inglés y chino."
+  },
+  {
+    "id": "moondream2",
+    "name": "Moondream 2",
+    "org": "Moondream (vikhyatk)",
+    "category": "multimodal",
+    "task": "Subtítulos y preguntas sobre imágenes, ligero",
+    "params": "1.93B",
+    "paramsB": 1.93,
+    "released": "2024-03",
+    "license": "Apache 2.0",
+    "versions": [
+      "Moondream 2",
+      "Moondream 3 (preview)"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/vikhyatk/moondream2",
+      "kaggle": null,
+      "github": "https://github.com/vikhyat/moondream",
+      "ollama": "https://ollama.com/library/moondream",
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 3.9,
+      "fullPrecision": "bf16",
+      "q4GB": 1.2,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 4,
+      "minRamGB": 4,
+      "cpuOk": true,
+      "note": "bf16 ocupa 3.9 GB. Q4 de 1.2 GB (estimado); corre bien en CPU y en laptops sin GPU. Requiere trust_remote_code en transformers."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "ChartQA",
+        "score": "77.5",
+        "source": "https://huggingface.co/vikhyatk/moondream2"
+      },
+      {
+        "name": "DocVQA",
+        "score": "79.3",
+        "source": "https://huggingface.co/vikhyatk/moondream2"
+      }
+    ],
+    "description": "Modelo de visión muy pequeño y rápido para equipos con pocos recursos. Se sigue actualizando; existe Moondream 3 en versión preview (9B MoE), aún no estable. Mejor en inglés."
+  },
+  {
+    "id": "smolvlm2-2.2b-instruct",
+    "name": "SmolVLM2 2.2B Instruct",
+    "org": "Hugging Face",
+    "category": "multimodal",
+    "task": "Imagen y video en modelos pequeños",
+    "params": "2.25B",
+    "paramsB": 2.25,
+    "released": "2025-02",
+    "license": "Apache 2.0",
+    "versions": [
+      "SmolVLM2 256M",
+      "SmolVLM2 500M",
+      "SmolVLM2 2.2B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+      "kaggle": null,
+      "github": "https://github.com/huggingface/smollm",
+      "ollama": null,
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 9,
+      "fullPrecision": "fp32",
+      "q4GB": 1.1,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 4,
+      "minRamGB": 4,
+      "cpuOk": true,
+      "note": "Los pesos publicados están en fp32 (9.0 GB); cargados en bf16 ocupan unos 4.5 GB. Q4_K_M de 1.1 GB (repo ggml-org) más 0.9 GB del proyector. Corre en CPU."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "MMMU",
+        "score": "42",
+        "source": "https://huggingface.co/HuggingFaceTB/SmolVLM2-2.2B-Instruct"
+      },
+      {
+        "name": "DocVQA (val)",
+        "score": "79.98",
+        "source": "https://huggingface.co/HuggingFaceTB/SmolVLM2-2.2B-Instruct"
+      },
+      {
+        "name": "OCRBench",
+        "score": "72.9",
+        "source": "https://huggingface.co/HuggingFaceTB/SmolVLM2-2.2B-Instruct"
+      }
+    ],
+    "description": "Modelo de visión-lenguaje compacto de Hugging Face que entiende imágenes y video. Sucesor de SmolVLM. Orientado a inglés."
+  },
+  {
+    "id": "florence-2-large",
+    "name": "Florence-2 Large",
+    "org": "Microsoft",
+    "category": "multimodal",
+    "task": "Subtítulos, detección de objetos y OCR por prompts",
+    "params": "0.77B",
+    "paramsB": 0.77,
+    "released": "2024-06",
+    "license": "MIT",
+    "versions": [
+      "Florence-2 base",
+      "Florence-2 large",
+      "Florence-2 large ft"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/microsoft/Florence-2-large",
+      "kaggle": null,
+      "github": null,
+      "ollama": null,
+      "paper": "https://arxiv.org/abs/2311.06242"
+    },
+    "weights": {
+      "fullGB": 1.55,
+      "fullPrecision": "fp16",
+      "q4GB": null,
+      "formats": [
+        "safetensors",
+        "PyTorch"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 2,
+      "minRamGB": 4,
+      "cpuOk": true,
+      "note": "Pesos de 1.6 GB; corre en CPU o en cualquier GPU. No es un chat: responde a tareas fijas (caption, detección, OCR). Requiere trust_remote_code."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "COCO Caption CIDEr (test, zero-shot)",
+        "score": "135.6",
+        "source": "https://huggingface.co/microsoft/Florence-2-large"
+      },
+      {
+        "name": "COCO detección mAP (val2017, zero-shot)",
+        "score": "37.5",
+        "source": "https://huggingface.co/microsoft/Florence-2-large"
+      }
+    ],
+    "description": "Modelo de visión pequeño que resuelve varias tareas (descripción, detección, segmentación, OCR) con instrucciones cortas. No conversa. Prompts y salidas en inglés."
+  },
+  {
+    "id": "internvl3.5-8b",
+    "name": "InternVL3.5 8B",
+    "org": "OpenGVLab (Shanghai AI Lab)",
+    "category": "multimodal",
+    "task": "Razonamiento visual, OCR y agentes de interfaz",
+    "params": "8.53B",
+    "paramsB": 8.53,
+    "released": "2025-08",
+    "license": "Apache 2.0",
+    "versions": [
+      "InternVL3.5 1B",
+      "InternVL3.5 2B",
+      "InternVL3.5 4B",
+      "InternVL3.5 8B",
+      "InternVL3.5 30B-A3B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/OpenGVLab/InternVL3_5-8B",
+      "kaggle": null,
+      "github": "https://github.com/OpenGVLab/InternVL",
+      "ollama": null,
+      "paper": "https://arxiv.org/abs/2508.18265"
+    },
+    "weights": {
+      "fullGB": 17.1,
+      "fullPrecision": "bf16",
+      "q4GB": 5,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 8,
+      "minRamGB": 8,
+      "cpuOk": true,
+      "note": "bf16 requiere unos 21 GB. Q4_K_M de 5.0 GB (repo comunitario mradermacher) más el proyector: justo en 8 GB. Hay versiones de 1B, 2B y 4B más ligeras. Requiere trust_remote_code."
+    },
+    "local": "facil",
+    "benchmarks": [],
+    "description": "Familia multimodal abierta con buen razonamiento visual. La ficha no publica tabla de benchmarks (los resultados están en el paper). Mejor en inglés y chino."
+  },
+  {
+    "id": "all-minilm-l6-v2",
+    "name": "all-MiniLM-L6-v2",
+    "org": "Sentence Transformers",
+    "category": "embeddings",
+    "task": "Embeddings de oraciones (384 dimensiones)",
+    "params": "22.7M",
+    "paramsB": 0.0227,
+    "released": "2022-03",
+    "license": "Apache 2.0",
+    "versions": [
+      "all-MiniLM-L6-v2",
+      "all-MiniLM-L12-v2",
+      "all-mpnet-base-v2"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+      "kaggle": null,
+      "github": null,
+      "ollama": "https://ollama.com/library/all-minilm",
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 0.09,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "safetensors",
+        "ONNX",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 0,
+      "minRamGB": 1,
+      "cpuOk": true,
+      "note": "Solo 90 MB; corre en cualquier CPU. Contexto corto (256 tokens)."
+    },
+    "local": "facil",
+    "benchmarks": [],
+    "description": "Modelo de embeddings muy pequeño y rápido, referencia para búsqueda semántica sencilla. Entrenado sobre todo en inglés: flojo en español; mejor usar uno multilingüe."
+  },
+  {
+    "id": "bge-m3",
+    "name": "BGE-M3",
+    "org": "BAAI",
+    "category": "embeddings",
+    "task": "Embeddings densos, dispersos y multivector (100+ idiomas)",
+    "params": "568M",
+    "paramsB": 0.568,
+    "released": "2024-01",
+    "license": "MIT",
+    "versions": [
+      "bge-m3"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/BAAI/bge-m3",
+      "kaggle": null,
+      "github": "https://github.com/FlagOpen/FlagEmbedding",
+      "ollama": "https://ollama.com/library/bge-m3",
+      "paper": "https://arxiv.org/abs/2402.03216"
+    },
+    "weights": {
+      "fullGB": 2.27,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "PyTorch",
+        "ONNX",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 3,
+      "minRamGB": 4,
+      "cpuOk": true,
+      "note": "Pesos de 2.3 GB en fp32 (unos 1.1 GB en fp16). Contexto de hasta 8192 tokens. Funciona en CPU con velocidad aceptable."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "MTEB multilingüe (promedio de tareas)",
+        "score": "59.56",
+        "source": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B"
+      }
+    ],
+    "description": "Embeddings multilingües muy usados para búsqueda y RAG. Bueno en español y más de 100 idiomas, con contexto largo. La cifra MTEB sale de la tabla de la ficha de Qwen3-Embedding."
+  },
+  {
+    "id": "nomic-embed-text-v2-moe",
+    "name": "Nomic Embed Text v2 (MoE)",
+    "org": "Nomic AI",
+    "category": "embeddings",
+    "task": "Embeddings multilingües con dimensión ajustable (Matryoshka)",
+    "params": "475M",
+    "paramsB": 0.475,
+    "released": "2025-02",
+    "license": "Apache 2.0",
+    "versions": [
+      "nomic-embed-text-v1",
+      "nomic-embed-text-v1.5",
+      "nomic-embed-text-v2-moe"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe",
+      "kaggle": null,
+      "github": "https://github.com/nomic-ai/contrastors",
+      "ollama": "https://ollama.com/library/nomic-embed-text-v2-moe",
+      "paper": "https://arxiv.org/abs/2502.07972"
+    },
+    "weights": {
+      "fullGB": 1.9,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 2,
+      "minRamGB": 3,
+      "cpuOk": true,
+      "note": "Pesos de 1.9 GB en fp32; GGUF Q4_K_M de 0.34 GB en el repo oficial. Contexto de 512 tokens. La v1.5 (137M, solo inglés) es más ligera."
+    },
+    "local": "facil",
+    "benchmarks": [],
+    "description": "Versión multilingüe de Nomic Embed con arquitectura mixture-of-experts. Cubre unos 100 idiomas, español incluido. La ficha no publica promedio MTEB."
+  },
+  {
+    "id": "multilingual-e5-large-instruct",
+    "name": "multilingual-e5-large-instruct",
+    "org": "Microsoft (intfloat)",
+    "category": "embeddings",
+    "task": "Embeddings multilingües guiados por instrucción",
+    "params": "560M",
+    "paramsB": 0.56,
+    "released": "2024-02",
+    "license": "MIT",
+    "versions": [
+      "multilingual-e5-small",
+      "multilingual-e5-base",
+      "multilingual-e5-large",
+      "multilingual-e5-large-instruct"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/intfloat/multilingual-e5-large-instruct",
+      "kaggle": null,
+      "github": "https://github.com/microsoft/unilm/tree/master/e5",
+      "ollama": null,
+      "paper": "https://arxiv.org/abs/2402.05672"
+    },
+    "weights": {
+      "fullGB": 1.12,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "safetensors",
+        "ONNX"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 2,
+      "minRamGB": 3,
+      "cpuOk": true,
+      "note": "Pesos de 1.1 GB. Contexto de 512 tokens. Hay que anteponer una instrucción a la consulta. Corre en CPU."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "MTEB multilingüe (promedio de tareas)",
+        "score": "63.22",
+        "source": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B"
+      }
+    ],
+    "description": "Embeddings multilingües (unos 100 idiomas) con buen desempeño en español. La cifra MTEB sale de la tabla de la ficha de Qwen3-Embedding."
+  },
+  {
+    "id": "qwen3-embedding-0.6b",
+    "name": "Qwen3-Embedding 0.6B",
+    "org": "Alibaba (Qwen)",
+    "category": "embeddings",
+    "task": "Embeddings multilingües y de código (100+ idiomas)",
+    "params": "596M",
+    "paramsB": 0.596,
+    "released": "2025-06",
+    "license": "Apache 2.0",
+    "versions": [
+      "Qwen3-Embedding 0.6B",
+      "Qwen3-Embedding 4B",
+      "Qwen3-Embedding 8B",
+      "Qwen3-VL-Embedding"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B",
+      "kaggle": null,
+      "github": "https://github.com/QwenLM/Qwen3-Embedding",
+      "ollama": "https://ollama.com/library/qwen3-embedding",
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 1.19,
+      "fullPrecision": "bf16",
+      "q4GB": null,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 2,
+      "minRamGB": 3,
+      "cpuOk": true,
+      "note": "Pesos de 1.2 GB (bf16); GGUF Q8_0 de 0.64 GB en el repo oficial. Contexto de 32K tokens y dimensión ajustable. Corre en CPU."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "MTEB multilingüe (promedio de tareas)",
+        "score": "64.33",
+        "source": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B"
+      },
+      {
+        "name": "MTEB inglés v2 (promedio de tareas)",
+        "score": "70.70",
+        "source": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B"
+      }
+    ],
+    "description": "Embeddings de la familia Qwen3 con muy buen resultado para su tamaño. Bueno en español y más de 100 idiomas, incluido código."
+  },
+  {
+    "id": "bge-reranker-v2-m3",
+    "name": "bge-reranker-v2-m3",
+    "org": "BAAI",
+    "category": "embeddings",
+    "task": "Reranking",
+    "params": "568M",
+    "paramsB": 0.568,
+    "released": "2024-03",
+    "license": "Apache 2.0",
+    "versions": [
+      "bge-reranker-base",
+      "bge-reranker-large",
+      "bge-reranker-v2-m3"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/BAAI/bge-reranker-v2-m3",
+      "kaggle": null,
+      "github": "https://github.com/FlagOpen/FlagEmbedding",
+      "ollama": null,
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 2.27,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "safetensors"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 3,
+      "minRamGB": 4,
+      "cpuOk": true,
+      "note": "Pesos de 2.3 GB en fp32 (unos 1.1 GB en fp16). Recibe pares consulta-documento y devuelve una puntuación; es más costoso por documento que un embedding. En CPU sirve para pocos candidatos."
+    },
+    "local": "facil",
+    "benchmarks": [],
+    "description": "Reranker multilingüe ligero para reordenar resultados de búsqueda (RAG). Funciona con español y otros idiomas. La ficha no publica cifras de benchmark."
+  }
+]
