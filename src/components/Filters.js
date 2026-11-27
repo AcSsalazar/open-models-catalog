@@ -35,6 +35,9 @@ export function createFilters(container, { models, onChange }) {
   container.append(root);
 
   function paint() {
+    root.querySelector('input[type="search"]').value = value.query;
+    root.querySelector('[data-role="fits"]').checked = value.onlyFits;
+    root.querySelector('[data-role="sort"]').value = value.sort;
     root.querySelectorAll('[data-category]').forEach((b) => {
       const on = b.dataset.category === value.category;
       b.classList.toggle(styles.active, on);
@@ -52,7 +55,10 @@ export function createFilters(container, { models, onChange }) {
     const category = e.target.closest('[data-category]')?.dataset.category;
     if (category) set({ category });
   });
-  root.querySelector('input[type="search"]').addEventListener('input', (e) => set({ query: e.target.value }));
+  root.querySelector('input[type="search"]').addEventListener('input', (e) => {
+    value = { ...value, query: e.target.value };
+    onChange?.(value);
+  });
   root.querySelector('[data-role="fits"]').addEventListener('change', (e) => set({ onlyFits: e.target.checked }));
   root.querySelector('[data-role="sort"]').addEventListener('change', (e) => set({ sort: e.target.value }));
 
