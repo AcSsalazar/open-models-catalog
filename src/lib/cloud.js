@@ -28,7 +28,7 @@ export function validatePlatform(p) {
   req(isTextOrNull(p.gpu ?? null), 'gpu inválido');
   req(isNumOrNull(p.vramGB ?? null), 'vramGB inválido');
   req(isNumOrNull(p.ramGB ?? null), 'ramGB inválido');
-  req(p.gpu == null || p.vramGB != null, 'con GPU debe indicar vramGB');
+  req(p.vramGB == null || p.gpu != null, 'con vramGB debe indicar la GPU');
   req(typeof p.limits === 'string' && p.limits.length > 0, 'falta limits');
   req(p.requiresCard === null || typeof p.requiresCard === 'boolean', 'requiresCard inválido');
   req(isUrl(p.url), 'url inválida');

@@ -25,8 +25,8 @@ describe('validatePlatform', () => {
     expect(validatePlatform(base)).toEqual([]);
   });
 
-  it('exige vramGB si hay GPU', () => {
-    expect(validatePlatform({ ...base, vramGB: null })).toContain('colab: con GPU debe indicar vramGB');
+  it('exige nombrar la GPU si indica vramGB', () => {
+    expect(validatePlatform({ ...base, gpu: null })).toContain('colab: con vramGB debe indicar la GPU');
   });
 
   it('rechaza tipos y links inválidos', () => {
