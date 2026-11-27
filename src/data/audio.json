@@ -1,1 +1,610 @@
-[]
+[
+  {
+    "id": "whisper-large-v3",
+    "name": "Whisper large-v3",
+    "org": "OpenAI",
+    "category": "audio",
+    "task": "Reconocimiento de voz (ASR)",
+    "params": "1.55B",
+    "paramsB": 1.55,
+    "released": "2023-11",
+    "license": "Apache 2.0",
+    "versions": [
+      "Whisper tiny",
+      "Whisper base",
+      "Whisper small",
+      "Whisper medium",
+      "Whisper large-v3",
+      "Whisper large-v3-turbo"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/openai/whisper-large-v3",
+      "kaggle": null,
+      "github": "https://github.com/openai/whisper",
+      "ollama": null,
+      "paper": "https://arxiv.org/abs/2212.04356"
+    },
+    "weights": {
+      "fullGB": 3.09,
+      "fullPrecision": "fp16",
+      "q4GB": null,
+      "formats": [
+        "safetensors"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 6,
+      "minRamGB": 8,
+      "cpuOk": true,
+      "note": "Pesos fp16 de 3.1 GB x 1.2 mas margen para audio. En CPU funciona pero es lento."
+    },
+    "local": "facil",
+    "benchmarks": [],
+    "description": "Modelo de reconocimiento de voz multilingüe de OpenAI, con transcripción y traducción. Referencia de calidad para transcribir en local."
+  },
+  {
+    "id": "whisper-large-v3-turbo",
+    "name": "Whisper large-v3-turbo",
+    "org": "OpenAI",
+    "category": "audio",
+    "task": "Reconocimiento de voz (ASR)",
+    "params": "809M",
+    "paramsB": 0.809,
+    "released": "2024-10",
+    "license": "MIT",
+    "versions": [
+      "Whisper large-v3",
+      "Whisper large-v3-turbo"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/openai/whisper-large-v3-turbo",
+      "kaggle": null,
+      "github": "https://github.com/openai/whisper",
+      "ollama": null,
+      "paper": "https://arxiv.org/abs/2212.04356"
+    },
+    "weights": {
+      "fullGB": 1.62,
+      "fullPrecision": "fp16",
+      "q4GB": null,
+      "formats": [
+        "safetensors"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 4,
+      "minRamGB": 6,
+      "cpuOk": true,
+      "note": "Pesos fp16 de 1.6 GB x 1.2 mas margen. Usable en CPU, más rápido que large-v3."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "WER fuera de dominio, audio corto (promedio, según tabla de Distil-Large-v3.5)",
+        "score": "7.30",
+        "source": "https://huggingface.co/distil-whisper/distil-large-v3.5"
+      }
+    ],
+    "description": "Versión de Whisper large-v3 con decodificador reducido, mucho más rápida con precisión cercana. Buena opción por defecto para transcribir."
+  },
+  {
+    "id": "distil-large-v3.5",
+    "name": "Distil-Whisper large-v3.5",
+    "org": "Hugging Face (Distil-Whisper)",
+    "category": "audio",
+    "task": "Reconocimiento de voz (ASR)",
+    "params": "756M",
+    "paramsB": 0.756,
+    "released": "2024-12",
+    "license": "MIT",
+    "versions": [
+      "distil-large-v3",
+      "distil-large-v3.5"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/distil-whisper/distil-large-v3.5",
+      "kaggle": null,
+      "github": "https://github.com/huggingface/distil-whisper",
+      "ollama": null,
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 3.03,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "safetensors"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 3,
+      "minRamGB": 6,
+      "cpuOk": true,
+      "note": "El archivo es fp32 (3.0 GB); cargado en fp16 son unos 1.5 GB, de ahí el VRAM mínimo. Reemplaza a distil-large-v3 de la lista sugerida. Solo inglés."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "WER fuera de dominio, audio corto (promedio)",
+        "score": "7.08",
+        "source": "https://huggingface.co/distil-whisper/distil-large-v3.5"
+      }
+    ],
+    "description": "Whisper destilado, solo inglés, más rápido que large-v3-turbo. Sirve también como modelo borrador para decodificación especulativa."
+  },
+  {
+    "id": "parakeet-tdt-0.6b-v3",
+    "name": "Parakeet TDT 0.6B v3",
+    "org": "NVIDIA",
+    "category": "audio",
+    "task": "Reconocimiento de voz (ASR)",
+    "params": "600M",
+    "paramsB": 0.627,
+    "released": "2025-08",
+    "license": "CC BY 4.0",
+    "versions": [
+      "Parakeet TDT 0.6B v2 (solo inglés)",
+      "Parakeet TDT 0.6B v3 (25 idiomas europeos)"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3",
+      "kaggle": null,
+      "github": "https://github.com/NVIDIA-NeMo/NeMo",
+      "ollama": null,
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 2.51,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "safetensors",
+        "NeMo",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 4,
+      "minRamGB": 6,
+      "cpuOk": true,
+      "note": "Pesos de 2.5 GB (fp32); en fp16 requiere menos. Funciona en CPU. Usa el framework NeMo."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "WER LibriSpeech test-clean",
+        "score": "1.93",
+        "source": "https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3"
+      },
+      {
+        "name": "WER AMI (reuniones)",
+        "score": "11.31",
+        "source": "https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3"
+      }
+    ],
+    "description": "Modelo de transcripción de NVIDIA, rápido y con 25 idiomas europeos, incluido español. Entrega marcas de tiempo por palabra."
+  },
+  {
+    "id": "kokoro-82m",
+    "name": "Kokoro-82M",
+    "org": "hexgrad",
+    "category": "audio",
+    "task": "Texto a voz (TTS)",
+    "params": "82M",
+    "paramsB": 0.082,
+    "released": "2024-12",
+    "license": "Apache 2.0",
+    "versions": [
+      "Kokoro v0.19",
+      "Kokoro v1.0"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/hexgrad/Kokoro-82M",
+      "kaggle": null,
+      "github": "https://github.com/hexgrad/kokoro",
+      "ollama": null,
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 0.33,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "pth"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 2,
+      "minRamGB": 4,
+      "cpuOk": true,
+      "note": "Pesos de 0.33 GB. Corre en tiempo real en CPU."
+    },
+    "local": "facil",
+    "benchmarks": [],
+    "description": "Modelo de voz sintética muy pequeño y liviano, con licencia permisiva. Varias voces e idiomas; sin clonación de voz."
+  },
+  {
+    "id": "xtts-v2",
+    "name": "XTTS-v2",
+    "org": "Coqui",
+    "category": "audio",
+    "task": "Texto a voz (TTS)",
+    "params": null,
+    "paramsB": null,
+    "released": "2023-10",
+    "license": "Coqui Public Model License (CPML, no comercial)",
+    "versions": [
+      "XTTS-v1",
+      "XTTS-v2"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/coqui/XTTS-v2",
+      "kaggle": null,
+      "github": "https://github.com/coqui-ai/TTS",
+      "ollama": null,
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 2.08,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "pth"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 4,
+      "minRamGB": 8,
+      "cpuOk": true,
+      "note": "model.pth (1.87 GB) más dvae.pth (0.21 GB). Usable en CPU pero lento. Uso comercial no permitido."
+    },
+    "local": "facil",
+    "benchmarks": [],
+    "description": "Síntesis de voz multilingüe (17 idiomas, incluido español) con clonación a partir de unos 6 segundos de audio. Coqui ya no mantiene el proyecto activamente."
+  },
+  {
+    "id": "f5-tts",
+    "name": "F5-TTS",
+    "org": "SWivid (Shanghai Jiao Tong Univ.)",
+    "category": "audio",
+    "task": "Texto a voz (TTS)",
+    "params": null,
+    "paramsB": null,
+    "released": "2024-10",
+    "license": "CC BY-NC 4.0 (no comercial)",
+    "versions": [
+      "F5-TTS v0",
+      "F5-TTS v1 Base",
+      "E2-TTS"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/SWivid/F5-TTS",
+      "kaggle": null,
+      "github": "https://github.com/SWivid/F5-TTS",
+      "ollama": null,
+      "paper": "https://arxiv.org/abs/2410.06885"
+    },
+    "weights": {
+      "fullGB": 1.35,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "safetensors",
+        "pt"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 4,
+      "minRamGB": 8,
+      "cpuOk": true,
+      "note": "Pesos de 1.35 GB (fp32) más el vocoder. Mejor con GPU; en CPU es lento. Licencia de pesos no comercial."
+    },
+    "local": "facil",
+    "benchmarks": [],
+    "description": "Síntesis de voz con clonación a partir de una muestra corta, basada en flow matching. Calidad natural en inglés y chino."
+  },
+  {
+    "id": "chatterbox",
+    "name": "Chatterbox (Multilingual)",
+    "org": "Resemble AI",
+    "category": "audio",
+    "task": "Texto a voz (TTS)",
+    "params": "0.5B",
+    "paramsB": 0.5,
+    "released": "2025-04",
+    "license": "MIT",
+    "versions": [
+      "Chatterbox",
+      "Chatterbox Multilingual V2",
+      "Chatterbox Multilingual V3"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/ResembleAI/chatterbox",
+      "kaggle": null,
+      "github": "https://github.com/resemble-ai/chatterbox",
+      "ollama": null,
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 3.21,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "safetensors",
+        "pt"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 7,
+      "minRamGB": 12,
+      "cpuOk": true,
+      "note": "Suma de t3 (2.14 GB), s3gen (1.06 GB) y ve (0.006 GB) de la variante multilingüe v3. Recomendado GPU; en CPU es lento."
+    },
+    "local": "facil",
+    "benchmarks": [],
+    "description": "Modelo de voz de 0.5B con clonación y control de intensidad emocional, 23 idiomas en la versión multilingüe. Licencia MIT."
+  },
+  {
+    "id": "dia-1.6b",
+    "name": "Dia 1.6B",
+    "org": "Nari Labs",
+    "category": "audio",
+    "task": "Texto a voz (TTS)",
+    "params": "1.6B",
+    "paramsB": 1.61,
+    "released": "2025-04",
+    "license": "Apache 2.0",
+    "versions": [
+      "Dia 1.6B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/nari-labs/Dia-1.6B",
+      "kaggle": null,
+      "github": "https://github.com/nari-labs/dia",
+      "ollama": null,
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 6.45,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "safetensors",
+        "pth"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 10,
+      "minRamGB": 16,
+      "cpuOk": false,
+      "note": "Pesos de 6.4 GB (fp32) x 1.2 mas margen; se recomienda GPU. Solo inglés."
+    },
+    "local": "gpu",
+    "benchmarks": [],
+    "description": "Modelo de diálogo que genera conversaciones de varios hablantes con etiquetas no verbales (risas, tos). Solo inglés."
+  },
+  {
+    "id": "musicgen-medium",
+    "name": "MusicGen medium",
+    "org": "Meta",
+    "category": "audio",
+    "task": "Generación de música",
+    "params": "1.5B",
+    "paramsB": 1.5,
+    "released": "2023-06",
+    "license": "CC BY-NC 4.0 (pesos; código MIT)",
+    "versions": [
+      "MusicGen small",
+      "MusicGen medium",
+      "MusicGen large",
+      "MusicGen melody"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/facebook/musicgen-medium",
+      "kaggle": null,
+      "github": "https://github.com/facebookresearch/audiocraft",
+      "ollama": null,
+      "paper": "https://arxiv.org/abs/2306.05284"
+    },
+    "weights": {
+      "fullGB": 8.04,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "bin"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 10,
+      "minRamGB": 16,
+      "cpuOk": false,
+      "note": "Archivo pytorch_model.bin de 8.0 GB (fp32); en fp16 baja a cerca de la mitad. Existe musicgen-small (2.4 GB) para GPU de 6 a 8 GB. Uso no comercial."
+    },
+    "local": "gpu",
+    "benchmarks": [
+      {
+        "name": "Frechet Audio Distance (MusicCaps, menor es mejor)",
+        "score": "5.14",
+        "source": "https://huggingface.co/facebook/musicgen-medium"
+      }
+    ],
+    "description": "Genera música a partir de texto. Variante intermedia de la familia; la versión small es más liviana."
+  },
+  {
+    "id": "stable-audio-open-1.0",
+    "name": "Stable Audio Open 1.0",
+    "org": "Stability AI",
+    "category": "audio",
+    "task": "Generación de música",
+    "params": "1.21B",
+    "paramsB": 1.21,
+    "released": "2024-05",
+    "license": "Stability AI Community License",
+    "versions": [
+      "Stable Audio Open 1.0"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/stabilityai/stable-audio-open-1.0",
+      "kaggle": null,
+      "github": "https://github.com/Stability-AI/stable-audio-tools",
+      "ollama": null,
+      "paper": "https://arxiv.org/abs/2407.14358"
+    },
+    "weights": {
+      "fullGB": 4.85,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "safetensors",
+        "ckpt"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 8,
+      "minRamGB": 12,
+      "cpuOk": false,
+      "note": "Pesos de 4.9 GB (fp32) x 1.2 mas margen. Requiere aceptar las condiciones en Hugging Face."
+    },
+    "local": "facil",
+    "benchmarks": [],
+    "description": "Genera efectos de sonido y muestras musicales cortas a partir de texto, modelo de difusión. Acceso con aceptación de condiciones en Hugging Face."
+  },
+  {
+    "id": "htdemucs",
+    "name": "HT Demucs (Demucs v4)",
+    "org": "Meta (FAIR)",
+    "category": "audio",
+    "task": "Separación de fuentes",
+    "params": null,
+    "paramsB": null,
+    "released": "2022-11",
+    "license": "MIT",
+    "versions": [
+      "Demucs v3 (hdemucs)",
+      "HT Demucs",
+      "HT Demucs fine-tuned",
+      "HT Demucs 6 fuentes"
+    ],
+    "links": {
+      "huggingface": null,
+      "kaggle": null,
+      "github": "https://github.com/facebookresearch/demucs",
+      "ollama": null,
+      "paper": "https://arxiv.org/abs/2211.08553"
+    },
+    "weights": {
+      "fullGB": null,
+      "fullPrecision": null,
+      "q4GB": null,
+      "formats": [
+        "PyTorch (descarga automática)"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 3,
+      "minRamGB": 8,
+      "cpuOk": true,
+      "note": "No hay repositorio oficial en Hugging Face; los pesos se descargan al ejecutar. El README pide al menos 3 GB de GPU (unos 7 GB con parámetros por defecto). El repositorio original está archivado; hay un fork en github.com/adefossez/demucs."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "SDR en MUSDB HQ (Hybrid Transformer Demucs)",
+        "score": "9.00 dB",
+        "source": "https://github.com/facebookresearch/demucs"
+      }
+    ],
+    "description": "Separa una canción en voz, batería, bajo y otros. Repositorio sin mantenimiento activo, pero muy usado."
+  },
+  {
+    "id": "pyannote-speaker-diarization-community-1",
+    "name": "pyannote speaker-diarization community-1",
+    "org": "pyannote",
+    "category": "audio",
+    "task": "Diarización",
+    "params": null,
+    "paramsB": null,
+    "released": "2025-09",
+    "license": "CC BY 4.0",
+    "versions": [
+      "speaker-diarization-3.1",
+      "speaker-diarization-community-1"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/pyannote/speaker-diarization-community-1",
+      "kaggle": null,
+      "github": "https://github.com/pyannote/pyannote-audio",
+      "ollama": null,
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 0.03,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "PyTorch"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 2,
+      "minRamGB": 4,
+      "cpuOk": true,
+      "note": "Modelos pequeños (segmentación y embeddings, unos 33 MB). Requiere aceptar condiciones y un token de Hugging Face. Reemplaza a speaker-diarization-3.1 de la lista sugerida."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "DER AMI (IHM), menor es mejor",
+        "score": "17.0",
+        "source": "https://github.com/pyannote/pyannote-audio"
+      },
+      {
+        "name": "DER VoxConverse v0.3",
+        "score": "11.2",
+        "source": "https://github.com/pyannote/pyannote-audio"
+      }
+    ],
+    "description": "Detecta quién habla y cuándo en una grabación. Versión comunitaria más reciente, mejor que la 3.1 en los benchmarks publicados."
+  },
+  {
+    "id": "silero-vad",
+    "name": "Silero VAD",
+    "org": "Silero",
+    "category": "audio",
+    "task": "Detección de voz (VAD)",
+    "params": null,
+    "paramsB": null,
+    "released": null,
+    "license": "MIT",
+    "versions": [
+      "Silero VAD v4",
+      "Silero VAD v5",
+      "Silero VAD v6"
+    ],
+    "links": {
+      "huggingface": null,
+      "kaggle": null,
+      "github": "https://github.com/snakers4/silero-vad",
+      "ollama": null,
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 0.002,
+      "fullPrecision": "fp32",
+      "q4GB": null,
+      "formats": [
+        "JIT",
+        "ONNX"
+      ]
+    },
+    "requirements": {
+      "minVramGB": null,
+      "minRamGB": 1,
+      "cpuOk": true,
+      "note": "El modelo JIT pesa unos 2 MB y procesa un fragmento de 30 ms en menos de 1 ms en una CPU. No necesita GPU."
+    },
+    "local": "facil",
+    "benchmarks": [],
+    "description": "Detector de actividad de voz muy ligero, entrenado con más de 6000 idiomas. Útil como paso previo de transcripción."
+  }
+]
