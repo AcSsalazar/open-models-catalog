@@ -1,0 +1,40 @@
+/* Computer Modern Unicode (la tipografía de LaTeX), licencia SIL OFL. Ver assets/fonts/OFL.txt */
+@font-face {
+  font-family: 'CMU Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/cmu-serif-500-roman.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'CMU Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/cmu-serif-500-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'CMU Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/cmu-serif-700-roman.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'CMU Serif';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/cmu-serif-700-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'CMU Typewriter Text';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/cmu-typewriter-text-500-roman.woff2') format('woff2');
+}

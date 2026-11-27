@@ -1,0 +1,138 @@
+@import './fonts.css';
+
+/* Estilo de artículo LaTeX: papel claro, tinta negra, reglas finas, sin tarjetas. */
+:root {
+  --bg: #fdfcf8;
+  --surface: transparent;
+  --text: #141414;
+  --muted: #5a5a5a;
+  --accent: #8b1c1c;
+  --border: #141414;
+  --hairline: #c9c6bc;
+  --radius: 0;
+  --serif: 'CMU Serif', 'Latin Modern Roman', 'Computer Modern', Georgia, serif;
+  --mono: 'CMU Typewriter Text', 'Latin Modern Mono', 'Courier New', monospace;
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.5;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #1c1b19;
+    --text: #e8e4d8;
+    --muted: #a6a197;
+    --accent: #e0a0a0;
+    --border: #e8e4d8;
+    --hairline: #4a4741;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #1c1b19;
+  --text: #e8e4d8;
+  --muted: #a6a197;
+  --accent: #e0a0a0;
+  --border: #e8e4d8;
+  --hairline: #4a4741;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+
+button {
+  font-family: var(--serif);
+}
+
+code,
+kbd {
+  font-family: var(--mono);
+}
+
+/* \maketitle */
+.app-header {
+  position: relative;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 48px 16px 0;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.app-header p {
+  margin: 10px 0 0;
+  font-style: italic;
+}
+
+.app-header .date {
+  margin-top: 6px;
+  font-style: normal;
+  font-size: 0.95rem;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  padding: 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.app-main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+.app-view {
+  display: grid;
+  gap: 32px;
+}
+
+.app-view[hidden] {
+  display: none;
+}
+
+/* Botones discretos, como un \fbox */
+.btn {
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text);
+  border-radius: 0;
+  padding: 3px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
