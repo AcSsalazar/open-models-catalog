@@ -1,0 +1,101 @@
+.guide {
+  display: grid;
+  gap: 10px;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.guide p {
+  margin: 0;
+}
+
+.equation {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin: 6px 0;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.equation em {
+  font-style: italic;
+}
+
+.number {
+  color: var(--text);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  border-top: 1.5px solid var(--border);
+  border-bottom: 1.5px solid var(--border);
+}
+
+.table th,
+.table td {
+  padding: 4px 8px;
+  text-align: left;
+}
+
+.table thead th {
+  border-bottom: 0.5px solid var(--border);
+}
+
+.table td + td,
+.table th + th {
+  text-align: right;
+}
+
+.calc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: baseline;
+}
+
+.calc input,
+.calc select {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.calc input {
+  width: 5em;
+  text-align: right;
+  font-family: var(--mono);
+}
+
+.result {
+  font-weight: 700;
+}
+
+.tools {
+  margin: 0;
+  padding-left: 1.4em;
+}
+
+.tools li {
+  margin: 2px 0;
+}
+
+.tools a {
+  color: var(--accent);
+}

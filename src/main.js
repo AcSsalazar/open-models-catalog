@@ -2,6 +2,7 @@ import './styles/global.css';
 import { createHardwareForm } from './components/HardwareForm.js';
 import { createModelTable } from './components/ModelTable.js';
 import { createFilters } from './components/Filters.js';
+import { createGuide } from './components/Guide.js';
 import { filterModels } from './lib/filter.js';
 import { MODELS } from './data/index.js';
 
@@ -27,6 +28,8 @@ const filters = createFilters(table.slot('filters'), {
   models: MODELS,
   onChange: () => update(),
 });
+
+createGuide(content);
 
 function update() {
   const visible = filterModels(MODELS, filters.value, hardware.value);
