@@ -1,1 +1,1129 @@
-[]
+[
+  {
+    "id": "llama-3.1-8b-instruct",
+    "name": "Llama 3.1 8B Instruct",
+    "org": "Meta",
+    "category": "texto",
+    "task": "Chat y asistente general",
+    "params": "8B",
+    "paramsB": 8,
+    "released": "2024-07",
+    "license": "Llama 3.1 Community License",
+    "versions": [
+      "Llama 3.1 8B",
+      "Llama 3.1 70B",
+      "Llama 3.1 405B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
+      "kaggle": null,
+      "github": null,
+      "ollama": "https://ollama.com/library/llama3.1",
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 16.1,
+      "fullPrecision": "bf16",
+      "q4GB": 4.92,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 6,
+      "minRamGB": 8,
+      "cpuOk": true,
+      "note": "Q4_K_M (4.92 GB) cabe en una GPU de 8 GB; en CPU funciona pero lento. Descargar los pesos requiere aceptar la licencia en Hugging Face."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "MMLU (5-shot)",
+        "score": "69.4",
+        "source": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct"
+      },
+      {
+        "name": "GPQA",
+        "score": "30.4",
+        "source": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct"
+      },
+      {
+        "name": "HumanEval (pass@1)",
+        "score": "72.6",
+        "source": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct"
+      }
+    ],
+    "description": "Modelo de lenguaje de Meta afinado para conversación. Buen punto de partida para correr en local."
+  },
+  {
+    "id": "llama-3.3-70b-instruct",
+    "name": "Llama 3.3 70B Instruct",
+    "org": "Meta",
+    "category": "texto",
+    "task": "Chat y asistente general de alta calidad",
+    "params": "70B",
+    "paramsB": 70.6,
+    "released": "2024-12",
+    "license": "Llama 3.3 Community License Agreement",
+    "versions": [
+      "Llama 3.3 70B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+      "kaggle": null,
+      "github": null,
+      "ollama": "https://ollama.com/library/llama3.3",
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 141.1,
+      "fullPrecision": "bf16",
+      "q4GB": 42.52,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 52,
+      "minRamGB": 45,
+      "cpuOk": true,
+      "note": "Q4_K_M pesa 42.5 GB: necesita unos 52 GB de VRAM (por ejemplo 2 GPU de 24 GB). En CPU requiere unos 45 GB de RAM y es muy lento."
+    },
+    "local": "dificil",
+    "benchmarks": [
+      {
+        "name": "MMLU (CoT)",
+        "score": "86.0",
+        "source": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
+      },
+      {
+        "name": "GPQA Diamond (CoT)",
+        "score": "50.5",
+        "source": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
+      },
+      {
+        "name": "HumanEval (pass@1)",
+        "score": "88.4",
+        "source": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
+      }
+    ],
+    "description": "Versión de 70B de Meta con calidad cercana a modelos mucho mayores. Exige varias GPU o mucha memoria."
+  },
+  {
+    "id": "qwen3.6-35b-a3b",
+    "name": "Qwen3.6 35B-A3B",
+    "org": "Alibaba (Qwen)",
+    "category": "texto",
+    "task": "Chat y razonamiento con arquitectura de expertos (MoE)",
+    "params": "35B (3B activos)",
+    "paramsB": 35.95,
+    "released": "2026-04",
+    "license": "Apache 2.0",
+    "versions": [
+      "Qwen3.6 27B",
+      "Qwen3.6 35B-A3B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B",
+      "kaggle": null,
+      "github": null,
+      "ollama": "https://ollama.com/library/qwen3.6",
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 71.9,
+      "fullPrecision": "bf16",
+      "q4GB": 22.13,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 24,
+      "minRamGB": 32,
+      "cpuOk": true,
+      "note": "Reemplaza a Qwen3 30B-A3B. Q4_K_M (22.1 GB, unsloth) queda justo en 24 GB; con menos VRAM se pueden descargar expertos a la RAM (unos 32 GB) y sigue siendo usable porque solo 3B parámetros están activos."
+    },
+    "local": "gpu",
+    "benchmarks": [
+      {
+        "name": "MMLU-Pro",
+        "score": "85.2",
+        "source": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B"
+      },
+      {
+        "name": "GPQA",
+        "score": "86.0",
+        "source": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B"
+      },
+      {
+        "name": "LiveCodeBench v6",
+        "score": "80.4",
+        "source": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B"
+      }
+    ],
+    "description": "Modelo MoE de Qwen: 35B de parámetros totales pero solo 3B activos por token, por lo que genera rápido para su calidad."
+  },
+  {
+    "id": "qwen3.8-27b",
+    "name": "Qwen3.8 27B",
+    "org": "Alibaba (Qwen)",
+    "category": "texto",
+    "task": "Chat, razonamiento y programación (acepta imágenes)",
+    "params": "27B",
+    "paramsB": 27.78,
+    "released": "2026-08",
+    "license": "Apache 2.0",
+    "versions": [
+      "Qwen3.8 27B",
+      "Qwen3.8 Flash Next",
+      "Qwen3.8 2.4T-A95B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "kaggle": null,
+      "github": null,
+      "ollama": "https://ollama.com/library/qwen3.8",
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 55.6,
+      "fullPrecision": "bf16",
+      "q4GB": 16.81,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 22,
+      "minRamGB": 19,
+      "cpuOk": true,
+      "note": "Q4_K_M (16.8 GB, lmstudio-community) entra en una GPU de 24 GB con contexto medio. En CPU hace falta unos 19 GB de RAM y es lento."
+    },
+    "local": "gpu",
+    "benchmarks": [
+      {
+        "name": "GPQA Diamond",
+        "score": "89.2",
+        "source": "https://huggingface.co/Qwen/Qwen3.8-27B"
+      },
+      {
+        "name": "LiveCodeBench v6",
+        "score": "90.3",
+        "source": "https://huggingface.co/Qwen/Qwen3.8-27B"
+      }
+    ],
+    "description": "Modelo denso más reciente de la familia Qwen. Buen equilibrio entre calidad y tamaño para una GPU de 24 GB."
+  },
+  {
+    "id": "mistral-small-3.2-24b-instruct",
+    "name": "Mistral Small 3.2 24B Instruct",
+    "org": "Mistral AI",
+    "category": "texto",
+    "task": "Chat, seguimiento de instrucciones y llamadas a funciones",
+    "params": "24B",
+    "paramsB": 24,
+    "released": "2025-06",
+    "license": "Apache 2.0",
+    "versions": [
+      "Mistral Small 3.2 24B",
+      "Mistral Small 4 119B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+      "kaggle": null,
+      "github": null,
+      "ollama": "https://ollama.com/library/mistral-small3.2",
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 48,
+      "fullPrecision": "bf16",
+      "q4GB": 14.33,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 19,
+      "minRamGB": 17,
+      "cpuOk": true,
+      "note": "Es la versión de 24B más reciente; Mistral Small 4 pasó a 119B. Q4_K_M (14.3 GB) necesita una GPU de unos 19 GB."
+    },
+    "local": "gpu",
+    "benchmarks": [
+      {
+        "name": "MMLU",
+        "score": "80.50%",
+        "source": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+      },
+      {
+        "name": "MMLU Pro (5-shot CoT)",
+        "score": "69.06%",
+        "source": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+      },
+      {
+        "name": "GPQA Diamond (5-shot CoT)",
+        "score": "46.13%",
+        "source": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+      }
+    ],
+    "description": "Modelo de 24B de Mistral con licencia abierta. Buena opción para una GPU de 24 GB."
+  },
+  {
+    "id": "gemma-4-e4b-it",
+    "name": "Gemma 4 E4B",
+    "org": "Google",
+    "category": "texto",
+    "task": "Chat y asistente ligero (acepta imágenes y audio)",
+    "params": "4.5B efectivos (8B con embeddings)",
+    "paramsB": 8,
+    "released": "2026-03",
+    "license": "Apache 2.0",
+    "versions": [
+      "Gemma 4 E2B",
+      "Gemma 4 E4B",
+      "Gemma 4 12B",
+      "Gemma 4 26B-A4B",
+      "Gemma 4 31B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/google/gemma-4-E4B-it",
+      "kaggle": null,
+      "github": null,
+      "ollama": "https://ollama.com/library/gemma4",
+      "paper": "https://arxiv.org/abs/2607.02770"
+    },
+    "weights": {
+      "fullGB": 16,
+      "fullPrecision": "bf16",
+      "q4GB": 4.98,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 7,
+      "minRamGB": 8,
+      "cpuOk": true,
+      "note": "Reemplaza a Gemma 3 4B. Q4_K_M (4.98 GB, unsloth) corre en una GPU de 8 GB o en CPU de forma usable."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "MMLU Pro",
+        "score": "69.4%",
+        "source": "https://huggingface.co/google/gemma-4-E4B-it"
+      },
+      {
+        "name": "GPQA Diamond",
+        "score": "58.6%",
+        "source": "https://huggingface.co/google/gemma-4-E4B-it"
+      },
+      {
+        "name": "LiveCodeBench v6",
+        "score": "52.0%",
+        "source": "https://huggingface.co/google/gemma-4-E4B-it"
+      }
+    ],
+    "description": "Modelo pequeño de Google pensado para equipos modestos. Admite texto, imagen y audio."
+  },
+  {
+    "id": "gemma-4-31b-it",
+    "name": "Gemma 4 31B",
+    "org": "Google",
+    "category": "texto",
+    "task": "Chat, razonamiento y programación (acepta imágenes)",
+    "params": "31B",
+    "paramsB": 30.7,
+    "released": "2026-03",
+    "license": "Apache 2.0",
+    "versions": [
+      "Gemma 4 E2B",
+      "Gemma 4 E4B",
+      "Gemma 4 12B",
+      "Gemma 4 26B-A4B",
+      "Gemma 4 31B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/google/gemma-4-31B-it",
+      "kaggle": null,
+      "github": null,
+      "ollama": "https://ollama.com/library/gemma4",
+      "paper": "https://arxiv.org/abs/2607.02770"
+    },
+    "weights": {
+      "fullGB": 62.5,
+      "fullPrecision": "bf16",
+      "q4GB": 18.69,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 24,
+      "minRamGB": 21,
+      "cpuOk": true,
+      "note": "Reemplaza a Gemma 3 27B. Q4_K_M (18.7 GB, lmstudio-community) necesita unos 24 GB de VRAM con contexto corto o medio."
+    },
+    "local": "gpu",
+    "benchmarks": [
+      {
+        "name": "MMLU Pro",
+        "score": "85.2%",
+        "source": "https://huggingface.co/google/gemma-4-31B-it"
+      },
+      {
+        "name": "GPQA Diamond",
+        "score": "84.3%",
+        "source": "https://huggingface.co/google/gemma-4-31B-it"
+      },
+      {
+        "name": "LiveCodeBench v6",
+        "score": "80.0%",
+        "source": "https://huggingface.co/google/gemma-4-31B-it"
+      }
+    ],
+    "description": "Modelo denso grande de Google, el más capaz de la familia Gemma 4 para una sola GPU de 24 GB."
+  },
+  {
+    "id": "phi-4",
+    "name": "Phi-4 (14B)",
+    "org": "Microsoft",
+    "category": "texto",
+    "task": "Razonamiento, matemáticas y chat en inglés",
+    "params": "14B",
+    "paramsB": 14.66,
+    "released": "2024-12",
+    "license": "MIT",
+    "versions": [
+      "Phi-4",
+      "Phi-4-reasoning",
+      "Phi-4-reasoning-plus",
+      "Phi-4-mini"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/microsoft/phi-4",
+      "kaggle": null,
+      "github": null,
+      "ollama": "https://ollama.com/library/phi4",
+      "paper": "https://arxiv.org/pdf/2412.08905"
+    },
+    "weights": {
+      "fullGB": 29.3,
+      "fullPrecision": "bf16",
+      "q4GB": 9.05,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 12,
+      "minRamGB": 12,
+      "cpuOk": true,
+      "note": "Q4_K_M (9.05 GB, lmstudio-community) necesita una GPU de unos 12 GB. En CPU es lento."
+    },
+    "local": "gpu",
+    "benchmarks": [
+      {
+        "name": "MMLU",
+        "score": "84.8",
+        "source": "https://huggingface.co/microsoft/phi-4"
+      },
+      {
+        "name": "GPQA",
+        "score": "56.1",
+        "source": "https://huggingface.co/microsoft/phi-4"
+      },
+      {
+        "name": "HumanEval",
+        "score": "82.6",
+        "source": "https://huggingface.co/microsoft/phi-4"
+      }
+    ],
+    "description": "Modelo de 14B de Microsoft entrenado con datos sintéticos; fuerte en razonamiento para su tamaño."
+  },
+  {
+    "id": "phi-4-mini-instruct",
+    "name": "Phi-4-mini Instruct",
+    "org": "Microsoft",
+    "category": "texto",
+    "task": "Chat ligero y llamadas a funciones",
+    "params": "3.8B",
+    "paramsB": 3.84,
+    "released": "2025-02",
+    "license": "MIT",
+    "versions": [
+      "Phi-4-mini",
+      "Phi-4-mini-reasoning",
+      "Phi-4-mini-flash-reasoning"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/microsoft/Phi-4-mini-instruct",
+      "kaggle": null,
+      "github": null,
+      "ollama": "https://ollama.com/library/phi4-mini",
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 7.7,
+      "fullPrecision": "bf16",
+      "q4GB": 2.49,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 4,
+      "minRamGB": 5,
+      "cpuOk": true,
+      "note": "Q4_K_M (2.49 GB) corre en casi cualquier laptop, también solo con CPU."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "MMLU (5-shot)",
+        "score": "67.3",
+        "source": "https://huggingface.co/microsoft/Phi-4-mini-instruct"
+      },
+      {
+        "name": "MMLU-Pro (0-shot, CoT)",
+        "score": "52.8",
+        "source": "https://huggingface.co/microsoft/Phi-4-mini-instruct"
+      },
+      {
+        "name": "MATH (0-shot, CoT)",
+        "score": "64.0",
+        "source": "https://huggingface.co/microsoft/Phi-4-mini-instruct"
+      }
+    ],
+    "description": "Modelo muy pequeño de Microsoft con buen razonamiento. Ideal para equipos sin GPU."
+  },
+  {
+    "id": "deepseek-r1-0528-qwen3-8b",
+    "name": "DeepSeek-R1-0528-Qwen3-8B",
+    "org": "DeepSeek",
+    "category": "texto",
+    "task": "Razonamiento paso a paso (matemáticas y lógica)",
+    "params": "8B",
+    "paramsB": 8.19,
+    "released": "2025-05",
+    "license": "MIT",
+    "versions": [
+      "R1-0528-Qwen3-8B",
+      "R1-Distill-Qwen-7B",
+      "R1-Distill-Qwen-14B",
+      "R1-Distill-Qwen-32B",
+      "R1-Distill-Llama-70B",
+      "R1-0528 (671B)"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
+      "kaggle": null,
+      "github": "https://github.com/deepseek-ai/DeepSeek-R1",
+      "ollama": "https://ollama.com/library/deepseek-r1",
+      "paper": "https://arxiv.org/abs/2501.12948"
+    },
+    "weights": {
+      "fullGB": 16.4,
+      "fullPrecision": "bf16",
+      "q4GB": 5.03,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 7,
+      "minRamGB": 8,
+      "cpuOk": true,
+      "note": "Reemplaza a DeepSeek-R1-Distill-Qwen-7B (misma idea, destilado de R1-0528 sobre Qwen3 8B). Q4_K_M (5.03 GB) cabe en 8 GB de VRAM. Genera cadenas de razonamiento largas, así que usa más contexto."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "AIME 2025 (pass@1)",
+        "score": "76.3",
+        "source": "https://huggingface.co/deepseek-ai/DeepSeek-R1-0528-Qwen3-8B"
+      },
+      {
+        "name": "GPQA Diamond (pass@1)",
+        "score": "61.1",
+        "source": "https://huggingface.co/deepseek-ai/DeepSeek-R1-0528-Qwen3-8B"
+      },
+      {
+        "name": "LiveCodeBench (2408-2505)",
+        "score": "60.5",
+        "source": "https://huggingface.co/deepseek-ai/DeepSeek-R1-0528-Qwen3-8B"
+      }
+    ],
+    "description": "Modelo de 8B destilado del R1 de DeepSeek. Muestra su razonamiento antes de responder."
+  },
+  {
+    "id": "deepseek-v4.1-flash",
+    "name": "DeepSeek-V4.1-Flash",
+    "org": "DeepSeek",
+    "category": "texto",
+    "task": "Chat, agentes y programación a gran escala (acepta imágenes)",
+    "params": "552B base (MoE, 8B-16B activos)",
+    "paramsB": 763.2,
+    "released": "2026-10",
+    "license": "MIT",
+    "versions": [
+      "V4-Flash",
+      "V4.1-Flash",
+      "V4.1-Flash-1017",
+      "V4-Pro (1.6T)"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "kaggle": null,
+      "github": null,
+      "ollama": null,
+      "paper": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/main/DeepSeek_V41_Tech_Report.pdf"
+    },
+    "weights": {
+      "fullGB": 510.3,
+      "fullPrecision": "FP8/INT4 mixto",
+      "q4GB": 500.7,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 640,
+      "minRamGB": 520,
+      "cpuOk": false,
+      "note": "Ejemplo difícil. Reemplaza a DeepSeek-V3/R1 (usa la actualización 1017). Los 500.7 GB corresponden a UD-Q4_K_XL de unsloth (no hay Q4_K_M) y excluyen archivos aparte de memoria Engram. Requiere unas 8 GPU de 80 GB; en Ollama solo existe la versión en la nube."
+    },
+    "local": "dificil",
+    "benchmarks": [
+      {
+        "name": "DeepSWE v1.1",
+        "score": "77.0",
+        "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+      },
+      {
+        "name": "Terminal-Bench 4.0",
+        "score": "42.3",
+        "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+      },
+      {
+        "name": "HLE sin herramientas",
+        "score": "42.6",
+        "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+      }
+    ],
+    "description": "Modelo MoE gigante de DeepSeek con contexto de hasta un millón de tokens. Sirve como ejemplo de lo que no cabe en equipos personales."
+  },
+  {
+    "id": "gpt-oss-20b",
+    "name": "gpt-oss-20b",
+    "org": "OpenAI",
+    "category": "texto",
+    "task": "Razonamiento y uso de herramientas",
+    "params": "21B (3.6B activos)",
+    "paramsB": 20.91,
+    "released": "2025-08",
+    "license": "Apache 2.0",
+    "versions": [
+      "gpt-oss-20b",
+      "gpt-oss-120b"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/openai/gpt-oss-20b",
+      "kaggle": null,
+      "github": "https://github.com/openai/gpt-oss",
+      "ollama": "https://ollama.com/library/gpt-oss",
+      "paper": "https://arxiv.org/abs/2508.10925"
+    },
+    "weights": {
+      "fullGB": 13.8,
+      "fullPrecision": "MXFP4",
+      "q4GB": 11.62,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 16,
+      "minRamGB": 14,
+      "cpuOk": true,
+      "note": "Los pesos ya vienen en MXFP4 (13.8 GB); el GGUF Q4_K_M de unsloth pesa 11.6 GB. Corre en una GPU de 16 GB; en CPU es posible con 14 GB de RAM pero lento."
+    },
+    "local": "gpu",
+    "benchmarks": [
+      {
+        "name": "MMLU (razonamiento alto, sin herramientas)",
+        "score": "85.3%",
+        "source": "https://arxiv.org/abs/2508.10925"
+      },
+      {
+        "name": "GPQA Diamond (sin herramientas)",
+        "score": "71.5%",
+        "source": "https://arxiv.org/abs/2508.10925"
+      }
+    ],
+    "description": "Modelo de pesos abiertos de OpenAI con razonamiento ajustable. La versión de 20B cabe en una GPU de 16 GB."
+  },
+  {
+    "id": "gpt-oss-120b",
+    "name": "gpt-oss-120b",
+    "org": "OpenAI",
+    "category": "texto",
+    "task": "Razonamiento y uso de herramientas",
+    "params": "117B (5.1B activos)",
+    "paramsB": 116.83,
+    "released": "2025-08",
+    "license": "Apache 2.0",
+    "versions": [
+      "gpt-oss-20b",
+      "gpt-oss-120b"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/openai/gpt-oss-120b",
+      "kaggle": null,
+      "github": "https://github.com/openai/gpt-oss",
+      "ollama": "https://ollama.com/library/gpt-oss",
+      "paper": "https://arxiv.org/abs/2508.10925"
+    },
+    "weights": {
+      "fullGB": 65.2,
+      "fullPrecision": "MXFP4",
+      "q4GB": 62.77,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 80,
+      "minRamGB": 65,
+      "cpuOk": true,
+      "note": "Pesos en MXFP4 (65.2 GB); GGUF Q4_K_M de unsloth: 62.8 GB (dos archivos). Necesita una GPU de 80 GB, o 64 GB de RAM más GPU con descarga de expertos (lento)."
+    },
+    "local": "dificil",
+    "benchmarks": [
+      {
+        "name": "MMLU (razonamiento alto, sin herramientas)",
+        "score": "90.0%",
+        "source": "https://arxiv.org/abs/2508.10925"
+      },
+      {
+        "name": "GPQA Diamond (sin herramientas)",
+        "score": "80.1%",
+        "source": "https://arxiv.org/abs/2508.10925"
+      }
+    ],
+    "description": "Versión grande de gpt-oss, de calidad cercana a modelos propietarios de razonamiento. Pensada para una GPU de 80 GB."
+  },
+  {
+    "id": "smollm3-3b",
+    "name": "SmolLM3 3B",
+    "org": "Hugging Face",
+    "category": "texto",
+    "task": "Chat ligero multilingüe con razonamiento opcional",
+    "params": "3B",
+    "paramsB": 3.08,
+    "released": "2025-07",
+    "license": "Apache 2.0",
+    "versions": [
+      "SmolLM3 3B Base",
+      "SmolLM3 3B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/HuggingFaceTB/SmolLM3-3B",
+      "kaggle": null,
+      "github": null,
+      "ollama": null,
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 6.2,
+      "fullPrecision": "bf16",
+      "q4GB": 1.92,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 3,
+      "minRamGB": 4,
+      "cpuOk": true,
+      "note": "Q4_K_M (1.92 GB) corre en cualquier laptop, incluso solo con CPU. No está en la biblioteca de Ollama."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "GPQA Diamond (sin razonamiento extendido)",
+        "score": "35.7",
+        "source": "https://huggingface.co/HuggingFaceTB/SmolLM3-3B"
+      },
+      {
+        "name": "IFEval (sin razonamiento extendido)",
+        "score": "76.7",
+        "source": "https://huggingface.co/HuggingFaceTB/SmolLM3-3B"
+      }
+    ],
+    "description": "Modelo pequeño y totalmente abierto de Hugging Face, con contexto largo y soporte de varios idiomas."
+  },
+  {
+    "id": "qwen2.5-coder-7b-instruct",
+    "name": "Qwen2.5-Coder 7B Instruct",
+    "org": "Alibaba (Qwen)",
+    "category": "codigo",
+    "task": "Generación y edición de código",
+    "params": "7B",
+    "paramsB": 7.62,
+    "released": "2024-09",
+    "license": "Apache 2.0",
+    "versions": [
+      "Qwen2.5-Coder 0.5B a 32B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct",
+      "kaggle": null,
+      "github": "https://github.com/QwenLM/Qwen2.5-Coder",
+      "ollama": "https://ollama.com/library/qwen2.5-coder",
+      "paper": "https://arxiv.org/abs/2409.12186"
+    },
+    "weights": {
+      "fullGB": 15.2,
+      "fullPrecision": "bf16",
+      "q4GB": 4.68,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 7,
+      "minRamGB": 7,
+      "cpuOk": true,
+      "note": "Q4_K_M (4.68 GB) cabe en una GPU de 8 GB; en CPU es usable para completado corto."
+    },
+    "local": "facil",
+    "benchmarks": [
+      {
+        "name": "HumanEval",
+        "score": "88.4",
+        "source": "https://arxiv.org/abs/2409.12186"
+      },
+      {
+        "name": "MBPP",
+        "score": "83.5",
+        "source": "https://arxiv.org/abs/2409.12186"
+      }
+    ],
+    "description": "Modelo de código de Qwen pequeño y rápido. Buena opción para autocompletado local."
+  },
+  {
+    "id": "qwen2.5-coder-32b-instruct",
+    "name": "Qwen2.5-Coder 32B Instruct",
+    "org": "Alibaba (Qwen)",
+    "category": "codigo",
+    "task": "Generación y edición de código",
+    "params": "32B",
+    "paramsB": 32.76,
+    "released": "2024-11",
+    "license": "Apache 2.0",
+    "versions": [
+      "Qwen2.5-Coder 0.5B a 32B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct",
+      "kaggle": null,
+      "github": "https://github.com/QwenLM/Qwen2.5-Coder",
+      "ollama": "https://ollama.com/library/qwen2.5-coder",
+      "paper": "https://arxiv.org/abs/2409.12186"
+    },
+    "weights": {
+      "fullGB": 65.5,
+      "fullPrecision": "bf16",
+      "q4GB": 19.85,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 24,
+      "minRamGB": 22,
+      "cpuOk": true,
+      "note": "Q4_K_M (19.9 GB) queda justo en 24 GB de VRAM con contexto corto. En CPU es muy lento."
+    },
+    "local": "gpu",
+    "benchmarks": [
+      {
+        "name": "HumanEval",
+        "score": "92.7",
+        "source": "https://arxiv.org/abs/2409.12186"
+      },
+      {
+        "name": "MBPP",
+        "score": "87.2",
+        "source": "https://arxiv.org/abs/2409.12186"
+      },
+      {
+        "name": "LiveCodeBench (pass@1)",
+        "score": "31.4",
+        "source": "https://arxiv.org/abs/2409.12186"
+      }
+    ],
+    "description": "Modelo de código de Qwen de 32B, muy usado en local. Requiere una GPU de 24 GB."
+  },
+  {
+    "id": "qwen3-coder-30b-a3b-instruct",
+    "name": "Qwen3-Coder 30B-A3B Instruct",
+    "org": "Alibaba (Qwen)",
+    "category": "codigo",
+    "task": "Código y tareas de agente",
+    "params": "30.5B (3.3B activos)",
+    "paramsB": 30.53,
+    "released": "2025-07",
+    "license": "Apache 2.0",
+    "versions": [
+      "Qwen3-Coder 30B-A3B",
+      "Qwen3-Coder 480B-A35B",
+      "Qwen3-Coder-Next"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct",
+      "kaggle": null,
+      "github": "https://github.com/QwenLM/Qwen3-Coder",
+      "ollama": "https://ollama.com/library/qwen3-coder",
+      "paper": "https://arxiv.org/abs/2505.09388"
+    },
+    "weights": {
+      "fullGB": 61.1,
+      "fullPrecision": "bf16",
+      "q4GB": 18.63,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 24,
+      "minRamGB": 21,
+      "cpuOk": true,
+      "note": "Q4_K_M (18.6 GB, lmstudio-community) necesita unos 24 GB de VRAM. Como solo 3B parámetros están activos, también corre aceptable en CPU con unos 21 GB de RAM. El paper enlazado es el informe de Qwen3."
+    },
+    "local": "gpu",
+    "benchmarks": [],
+    "description": "Modelo MoE de código de Qwen: rápido para su calidad y pensado para asistentes de programación."
+  },
+  {
+    "id": "qwen3-coder-next",
+    "name": "Qwen3-Coder-Next",
+    "org": "Alibaba (Qwen)",
+    "category": "codigo",
+    "task": "Código y agentes de programación",
+    "params": "80B (3B activos)",
+    "paramsB": 79.67,
+    "released": "2026-01",
+    "license": "Apache 2.0",
+    "versions": [
+      "Qwen3-Coder 30B-A3B",
+      "Qwen3-Coder 480B-A35B",
+      "Qwen3-Coder-Next"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/Qwen/Qwen3-Coder-Next",
+      "kaggle": null,
+      "github": "https://github.com/QwenLM/Qwen3-Coder",
+      "ollama": "https://ollama.com/library/qwen3-coder-next",
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 159.4,
+      "fullPrecision": "bf16",
+      "q4GB": 48.49,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 60,
+      "minRamGB": 51,
+      "cpuOk": true,
+      "note": "Ejemplo difícil. Q4_K_M (48.5 GB, lmstudio-community) necesita unos 60 GB de VRAM; en CPU con 51 GB de RAM funciona despacio porque solo 3B parámetros están activos."
+    },
+    "local": "dificil",
+    "benchmarks": [],
+    "description": "Versión más reciente de Qwen3-Coder, basada en un MoE de 80B con 3B activos. Orientada a agentes de código."
+  },
+  {
+    "id": "starcoder2-15b",
+    "name": "StarCoder2 15B",
+    "org": "BigCode (Hugging Face / ServiceNow / NVIDIA)",
+    "category": "codigo",
+    "task": "Completado de código (modelo base)",
+    "params": "15B",
+    "paramsB": 15.96,
+    "released": "2024-02",
+    "license": "BigCode OpenRAIL-M",
+    "versions": [
+      "StarCoder2 3B",
+      "StarCoder2 7B",
+      "StarCoder2 15B",
+      "StarCoder2 15B Instruct"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/bigcode/starcoder2-15b",
+      "kaggle": null,
+      "github": "https://github.com/bigcode-project/starcoder2",
+      "ollama": "https://ollama.com/library/starcoder2",
+      "paper": "https://huggingface.co/papers/2402.19173"
+    },
+    "weights": {
+      "fullGB": 63.8,
+      "fullPrecision": "fp32",
+      "q4GB": 9.86,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 13,
+      "minRamGB": 12,
+      "cpuOk": true,
+      "note": "El tamaño Q4_K_M (9.86 GB) se tomó del GGUF de la variante instruct v0.1, que tiene la misma arquitectura; no se encontró GGUF del modelo base. Los pesos oficiales vienen en fp32 (63.8 GB)."
+    },
+    "local": "gpu",
+    "benchmarks": [
+      {
+        "name": "HumanEval",
+        "score": "46.3",
+        "source": "https://huggingface.co/bigcode/starcoder2-15b"
+      },
+      {
+        "name": "HumanEval+",
+        "score": "37.8",
+        "source": "https://huggingface.co/bigcode/starcoder2-15b"
+      }
+    ],
+    "description": "Modelo base de código entrenado en más de 600 lenguajes. Sirve para completado, no para chat."
+  },
+  {
+    "id": "deepseek-coder-v2-lite-instruct",
+    "name": "DeepSeek-Coder-V2-Lite-Instruct",
+    "org": "DeepSeek",
+    "category": "codigo",
+    "task": "Generación y edición de código",
+    "params": "16B (2.4B activos)",
+    "paramsB": 15.71,
+    "released": "2024-06",
+    "license": "DeepSeek License (permite uso comercial)",
+    "versions": [
+      "Coder-V2-Lite",
+      "Coder-V2 236B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
+      "kaggle": null,
+      "github": "https://github.com/deepseek-ai/DeepSeek-Coder-V2",
+      "ollama": "https://ollama.com/library/deepseek-coder-v2",
+      "paper": "https://github.com/deepseek-ai/DeepSeek-Coder-V2/blob/main/paper.pdf"
+    },
+    "weights": {
+      "fullGB": 31.4,
+      "fullPrecision": "bf16",
+      "q4GB": 10.36,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 14,
+      "minRamGB": 13,
+      "cpuOk": true,
+      "note": "Q4_K_M (10.4 GB) necesita una GPU de unos 14 GB. Como solo 2.4B parámetros están activos, funciona usable en CPU con 13 GB de RAM."
+    },
+    "local": "gpu",
+    "benchmarks": [
+      {
+        "name": "HumanEval",
+        "score": "81.1",
+        "source": "https://github.com/deepseek-ai/DeepSeek-Coder-V2"
+      },
+      {
+        "name": "MBPP+",
+        "score": "68.8",
+        "source": "https://github.com/deepseek-ai/DeepSeek-Coder-V2"
+      },
+      {
+        "name": "LiveCodeBench",
+        "score": "24.3",
+        "source": "https://github.com/deepseek-ai/DeepSeek-Coder-V2"
+      }
+    ],
+    "description": "Modelo MoE de código de DeepSeek, ligero de ejecutar por sus pocos parámetros activos."
+  },
+  {
+    "id": "devstral-small-2-24b",
+    "name": "Devstral Small 2 24B",
+    "org": "Mistral AI",
+    "category": "codigo",
+    "task": "Agentes de programación (SWE)",
+    "params": "24B",
+    "paramsB": 24,
+    "released": "2025-12",
+    "license": "Apache 2.0",
+    "versions": [
+      "Devstral Small 2 24B",
+      "Devstral 2 123B"
+    ],
+    "links": {
+      "huggingface": "https://huggingface.co/mistralai/Devstral-Small-2-24B-Instruct-2512",
+      "kaggle": null,
+      "github": null,
+      "ollama": "https://ollama.com/library/devstral-small-2",
+      "paper": null
+    },
+    "weights": {
+      "fullGB": 25.8,
+      "fullPrecision": "fp8",
+      "q4GB": 14.33,
+      "formats": [
+        "safetensors",
+        "GGUF"
+      ]
+    },
+    "requirements": {
+      "minVramGB": 19,
+      "minRamGB": 17,
+      "cpuOk": true,
+      "note": "Los pesos oficiales vienen en FP8 (25.8 GB). Q4_K_M (14.3 GB) necesita una GPU de unos 19 GB."
+    },
+    "local": "gpu",
+    "benchmarks": [
+      {
+        "name": "SWE-Bench Verified",
+        "score": "68.0%",
+        "source": "https://huggingface.co/mistralai/Devstral-Small-2-24B-Instruct-2512"
+      },
+      {
+        "name": "Terminal Bench 2",
+        "score": "22.5%",
+        "source": "https://huggingface.co/mistralai/Devstral-Small-2-24B-Instruct-2512"
+      }
+    ],
+    "description": "Modelo de Mistral para resolver tareas de ingeniería de software con agentes. Cabe en una GPU de 24 GB."
+  }
+]
