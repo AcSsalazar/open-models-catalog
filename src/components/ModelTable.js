@@ -2,6 +2,7 @@ import styles from './ModelTable.module.css';
 import { CATEGORIES } from '../lib/schema.js';
 import { fitsHardware, formatGB, formatParams } from '../lib/hardware.js';
 import { escapeHtml } from '../lib/html.js';
+import { toggleDetail } from './ModelDetail.js';
 
 const FIT_LABEL = {
   gpu: 'Sí, en GPU',
@@ -17,6 +18,7 @@ function weightsCell(w = {}) {
 
 /** Tabla del catálogo. render(models, hardware) la vuelve a dibujar. */
 export function createModelTable(container, { onSelect } = {}) {
+  let current = [];
   const root = document.createElement('section');
   root.className = styles.section;
   root.innerHTML = `
@@ -45,6 +47,7 @@ export function createModelTable(container, { onSelect } = {}) {
   const tbody = root.querySelector('tbody');
 
   function render(models, hardware) {
+    current = models;
     root.querySelector('[data-role="count"]').textContent =
       `${models.length} ${models.length === 1 ? 'modelo' : 'modelos'}. Pesos: tamaño completo / cuantizado a 4 bits.`;
 
@@ -58,12 +61,12 @@ export function createModelTable(container, { onSelect } = {}) {
         const fit = fitsHardware(m, hardware);
         const r = m.requirements ?? {};
         return `
-        <tr class="${styles.row}" data-id="${escapeHtml(m.id)}">
+        <tr class="${styles.row}" data-id="${escapeHtml(m.id)}" aria-expanded="false" title="Ver ficha">
           <td><span class="${styles.name}">${escapeHtml(m.name)}</span><span class="${styles.org}">${escapeHtml(m.org)}</span></td>
           <td>${CATEGORIES[m.category]}. ${escapeHtml(m.task)}</td>
           <td class="${styles.num}">${formatParams(m.paramsB)}</td>
           <td class="${styles.num}">${weightsCell(m.weights)}</td>
-          <td class="${styles.num}">${r.minVramGB === 0 ? 'No usa' : formatGB(r.minVramGB)}</td>
+          <td class="${styles.num}">${r.minVramGB === 0 ? 'No requiere' : formatGB(r.minVramGB)}</td>
           <td class="${styles.num}">${formatGB(r.minRamGB)}</td>
           <td class="${styles.license}">${escapeHtml(m.license)}</td>
           <td class="${styles[fit] ?? ''}">${FIT_LABEL[fit]}</td>
@@ -73,8 +76,12 @@ export function createModelTable(container, { onSelect } = {}) {
   }
 
   tbody.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return;
     const row = e.target.closest('[data-id]');
-    if (row) onSelect?.(row.dataset.id, row);
+    if (!row) return;
+    const model = current.find((m) => m.id === row.dataset.id);
+    if (model) toggleDetail(row, model, 8);
+    onSelect?.(row.dataset.id, row);
   });
 
   return { root, render, slot: (name) => root.querySelector(`[data-slot="${name}"]`) };
